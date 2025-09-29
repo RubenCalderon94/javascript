@@ -3,15 +3,9 @@
 Cuando llegue a 10 vueltas, se detendrá.
 */
 
-let contador=10;
+let contador = 10;
 
 do {
-
-    alert("Hola");
-    contador--;
-    
-} while (contador !=0);
-
-
-
-
+  alert("Hola");
+  contador--;
+} while (contador != 0);
