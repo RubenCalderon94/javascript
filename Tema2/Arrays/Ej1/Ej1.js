@@ -3,11 +3,10 @@
 un array para almacenarlos y "for" para mostrarlos).
 */
 
-let num;
 contador = 6;
 let array = new Array(); //Declaramos el array e instanciamos
 do {
-  num = parseInt(prompt('Introduce un numero'));
+  let num = parseInt(prompt("Introduce un numero"));
   array.push(num); //Va guardando cada numero
   contador--;
 } while (contador != 0);
