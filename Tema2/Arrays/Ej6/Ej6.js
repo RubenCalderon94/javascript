@@ -3,21 +3,19 @@
 primero el tamaño de la matriz (que será cuadrada):
  */
 function crearTabla() {
-  let rdo = '<table><tr><td>&nbsp;&nbsp;</td>';
-  let dimension1 = parseInt(prompt('Tamaño de la matriz'));
-  //let dimension2 = parseInt(prompt("Dime numero de columnas"));
-
-  let array1 = new Array();
-  let array2 = new Array();
+  let array = new Array();
   let tabla = new Array();
+  let dimension = parseInt(prompt("Tamaño de la matriz"));
 
-  for (let i = 0; i < dimension1.length; i++) {
-    array1.push(i);
-  }
-  tabla.push(dimension1);
+  let rdo = "<table>";
 
-  for (let j = 0; j < array2.length; j++) {
-    array2.push(j);
+  for (let filas = 0; filas < dimension; filas++) {
+    for (let i = 0; i < dimension; i++) {
+      array.push(i);
+    }
+    tabla.push(array);
   }
-  tabla.push(dimension1);
+
+  rdo += "</table>";
+  document.getElementById("tabla").innerHTML = rdo;
 }
