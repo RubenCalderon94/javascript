@@ -1,0 +1,31 @@
+/* Estilo básico del botón */
+h1 {
+  text-align: center; /*centra el h1 al centro */
+}
+
+.centrar-botones {
+  text-align: center;
+}
+
+.boton {
+  background-color: #4caf50; /* color de fondo verde */
+  color: white; /* color del texto */
+  padding: 12px 24px; /* espacio interno (arriba/abajo y derecha/izquierda) */
+  font-size: 16px; /* tamaño del texto */
+  border: none; /* sin borde */
+  border-radius: 8px; /* bordes redondeados */
+  cursor: pointer; /* cursor tipo mano */
+  transition: background-color 0.3s, transform 0.2s; /* animación suave */
+}
+
+/* Efecto al pasar el mouse */
+.boton:hover {
+  background-color: #265b29; /* color más oscuro al pasar el cursor */
+  transform: scale(1.05); /* leve aumento de tamaño */
+}
+
+/* Efecto al presionar el botón */
+.boton:active {
+  background-color: #3e8e41; /* color al presionar */
+  transform: scale(0.98); /* leve reducción de tamaño */
+}
