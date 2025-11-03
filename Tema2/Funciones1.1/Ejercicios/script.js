@@ -252,3 +252,94 @@ function convierteFrase(mensaje) {
 15.- Escribe una función que reciba dos parámetros, string1 y string2, y que devuelva true si string1
 contiene a string2, o false en caso contrario.
 */
+
+function frase1() {
+  let string1 = prompt("Escribe la primera palabra");
+  let string2 = prompt("Escribe la segunda palabra");
+  let resultado = dosString(string1, string2);
+  console.log(resultado);
+}
+
+function dosString(string1, string2) {
+  return (resultado = string1.includes(string2));
+}
+
+/*
+16.- Crea una función que genere un número aleatorio, entre dos valores dados. Utiliza esta función para
+simular el funcionamiento de un dado.
+*/
+
+function aleatorio() {
+  let valor1 = parseInt(prompt("Escribe el primer numero:"));
+  let valor2 = parseInt(prompt("Escribe el segundo numero:"));
+  dado(valor1, valor2);
+}
+
+function dado(a, b) {
+  let min = Math.min(a, b); //comprobamos cual es el valor minimo.
+  let max = Math.max(a, b); //comprobamos cual es el valor maximo
+  let numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min; //Nos genera un numero al random, entre valor1 y valor2
+  //introducido por usuario
+  alert(numeroAleatorio);
+}
+
+/*
+17.- Define una función que devuelva una cadena de texto con el día actual. Además, hay que pasarle el
+separador. Suponiendo que el separador es “-”, el formato de salida será “dd-mm-yyyy”
+*/
+
+function diaActual() {
+  let fecha = new Date();
+  let diaDelMes = fecha.getDate(); // Día del mes actual
+  let diaMes = fecha.getDay(); // Día de la semana actual
+  let año = fecha.getFullYear(); // Año actual
+  console.log(`Hoy es: ${diaDelMes}-${diaMes}-${año}`);
+}
+
+/*
+18.- En una empresa las facturas vencen a los 20 días. Crear una función que tendrá como parámetro una
+fecha con el formato 'dd-mm-YYYY' y devolverá la fecha de vencimiento (con el mismo formato). Hay
+que tener en cuenta que, si la fecha de vencimiento cae en fin de semana, habrá que mostrar la fecha del
+viernes anterior
+*/
+
+function dimeFecha() {
+  let fechaTexto = prompt("Introduce la fecha en formato dd-mm-YYYY");
+  return fechaTexto;
+}
+
+function fechaVencimiento(fechaTexto) {
+  // Dividimos el texto en partes
+  let partes = fechaTexto.split("-"); // ejemplo: ["03","11","2025"]
+  let dia = parseInt(partes[0]);
+  let mes = parseInt(partes[1]) - 1; // en JS los meses van de 0 a 11
+  let año = parseInt(partes[2]);
+
+  // Creamos la fecha original
+  let fecha = new Date(año, mes, dia);
+
+  // Sumamos 20 días
+  fecha.setDate(fecha.getDate() + 20);
+
+  // Comprobamos el día de la semana (0=domingo, 6=sábado)
+  let diaSemana = fecha.getDay();
+
+  if (diaSemana === 6) {
+    // sábado -> restamos 1 día
+    fecha.setDate(fecha.getDate() - 1);
+  } else if (diaSemana === 0) {
+    // domingo -> restamos 2 días
+    fecha.setDate(fecha.getDate() - 2);
+  }
+
+  // Formateamos para mostrar dd-mm-YYYY
+  let diaFinal = String(fecha.getDate()).padStart(2, "0"); //asegura que tenga 2 caracteres, y si le falta uno, pone un "0" al principio.
+  let mesFinal = String(fecha.getMonth() + 1).padStart(2, "0"); //asegura que tenga 2 caracteres, y si le falta uno, pone un "0" al principio.
+  let añoFinal = fecha.getFullYear(); //Devuelve el año completo (por ejemplo 2025).
+
+  return `${diaFinal}-${mesFinal}-${añoFinal}`;
+}
+
+function hazTodo() {
+  let fechaEnTexto = dimeFecha();
+}
