@@ -5,28 +5,28 @@ String, a cada uno de los elementos del array. ¿Hay algún resultado que no esp
 */
 
 function ejercicio1() {
-  let valores = [3, 3.5, '3', '3.5', '7aaa', 'aaa7', 'hola'];
+  let valores = [3, 3.5, "3", "3.5", "7aaa", "aaa7", "hola"];
 
   for (let valor of valores) {
     console.log(`Valor original: ${valor}`);
 
-    console.log('parseInt:', parseInt(valor));
-    console.log('parseFloat:', parseFloat(valor));
-    console.log('isNaN:', isNaN(valor));
-    console.log('Number:', Number(valor));
-    console.log('String:', String(valor));
+    console.log("parseInt:", parseInt(valor));
+    console.log("parseFloat:", parseFloat(valor));
+    console.log("isNaN:", isNaN(valor));
+    console.log("Number:", Number(valor));
+    console.log("String:", String(valor));
 
-    console.log('---------------------------');
+    console.log("---------------------------");
   }
 }
 
 //2.- Crea una función llamada "DibujarLinea3", que dibuje una línea con 3 asteriscos en la pantalla
 
 function DibujarLinea3() {
-  let linea = '';
+  let linea = "";
 
   for (let i = 0; i < 3; i++) {
-    linea += '*';
+    linea += "*";
   }
   return linea;
 }
@@ -37,9 +37,9 @@ function DibujarLinea3() {
 */
 
 function DibujarCuadrado3x3() {
-  let linea = '';
+  let linea = "";
   for (let i = 0; i < 3; i++) {
-    linea = linea + DibujarLinea3() + '\n';
+    linea = linea + DibujarLinea3() + "\n";
   }
   alert(linea);
 }
@@ -50,14 +50,14 @@ función tendrá un parámetro de entrada con el número de asteriscos a mostrar
 */
 
 function ejercicio4() {
-  let numero = parseInt(prompt('Introduce numero de asteriscos'));
+  let numero = parseInt(prompt("Introduce numero de asteriscos"));
   DibujarLinea(numero); //Llamamos a la funcion y le metemos el parametro que arriba el usuario a introducido
 }
 
 function DibujarLinea(numero) {
-  linea = '';
+  linea = "";
   for (let i = 0; i < numero; i++) {
-    linea = linea + '*';
+    linea = linea + "*";
   }
   alert(linea);
 }
@@ -69,19 +69,19 @@ pedirá al usuario el tamaño del cuadrado, y llamará a la función con ese dat
 */
 
 function DibujarCuadrado() {
-  let asteriscos = parseInt(prompt('Introduce numero de asteriscos:'));
-  let filas = parseInt(prompt('Introduce numero de filas:'));
+  let asteriscos = parseInt(prompt("Introduce numero de asteriscos:"));
+  let filas = parseInt(prompt("Introduce numero de filas:"));
   DibujarLinea(asteriscos, filas);
 }
 
 function DibujarLinea(asteriscos, filas) {
-  linea = '';
+  linea = "";
   for (let i = 0; i < asteriscos; i++) {
     for (let i = 0; i < filas; i++) {
-      linea = linea + '*';
+      linea = linea + "*";
     }
     // Añadir salto de línea al final de cada fila
-    linea = linea + '\n';
+    linea = linea + "\n";
   }
   alert(linea);
 }
@@ -103,10 +103,10 @@ parámetro. ¿Qué ocurre?
 */
 
 function comprobarNumero() {
-  let num = parseInt(prompt('Introduce un numero'));
+  let num = parseInt(prompt("Introduce un numero"));
   // Comprobamos si NO es un número válido
   if (isNaN(num)) {
-    alert('Error: Debes introducir un número válido.');
+    alert("Error: Debes introducir un número válido.");
   }
   resultado = cubo(num);
   alert(resultado);
@@ -121,10 +121,10 @@ function cubo(numero) {
 */
 
 function Menor() {
-  let num1 = parseInt(prompt('Introduce un numero'));
-  let num2 = parseInt(prompt('Introduce un numero'));
+  let num1 = parseInt(prompt("Introduce un numero"));
+  let num2 = parseInt(prompt("Introduce un numero"));
   resultado = comprobarMenor(num1, num2);
-  alert('El numero menor es el: ' + resultado);
+  alert("El numero menor es el: " + resultado);
 }
 
 function comprobarMenor(numero1, numero2) {
@@ -145,7 +145,7 @@ Fuera de las funciones, solo habrá una llamada a la función HazTodo
 */
 
 function PideNumero() {
-  let num = parseInt(prompt('Introduce un numero'));
+  let num = parseInt(prompt("Introduce un numero"));
   return num;
 }
 
@@ -178,8 +178,8 @@ function HazTodo() {
 */
 
 function DevulveArray() {
-  let mensaje = prompt('Escribe un mensaje, lo transformaremos a un array');
-  let arrayPalabras = mensaje.split(' '); //el metodo split, lo separa palabra a palabra
+  let mensaje = prompt("Escribe un mensaje, lo transformaremos a un array");
+  let arrayPalabras = mensaje.split(" "); //el metodo split, lo separa palabra a palabra
 
   alert(arrayPalabras);
 }
@@ -188,4 +188,67 @@ function DevulveArray() {
 12.- Escribe una función que se le pase un nombre completo (string) y devuelve el nombre abreviado (es
 decir, el nombre y la primera letra del primer apellido, seguido de un punto). Escribe también el código
 necesario para probarla.
+*/
+
+function escribeNombre() {
+  let nombre = prompt("Escribe tu nombre completo");
+  nombreAbreviado(nombre);
+}
+
+function nombreAbreviado(nombre) {
+  // Eliminamos espacios sobrantes y separamos el nombre por espacios
+  let partes = nombre.trim().split(" ");
+
+  // Tomamos el primer nombre y el primer apellido
+  let nombrePrimero = partes[0];
+  let apellidoPrimero = partes[1] || ""; // por si no hay apellido
+
+  // Creamos el nombre abreviado
+  let abreviado =
+    nombrePrimero + " " + apellidoPrimero.charAt(0).toUpperCase() + ".";
+
+  return alert(abreviado);
+}
+
+/*
+13.- Crea una función que oculte parte de una dirección de email. Por ejemplo, si se le pasa
+“1234567890@gmail.com”, devolverá “12345…@gmail.com”, es decir, sustituye la 2ª mitad del email
+(antes de la @) por “...”. Escribe también el código necesario para probarla.
+*/
+
+function escribeEmail() {
+  let email = prompt("Escribe tu email completo");
+  ocultaEmail(email);
+}
+
+function ocultaEmail(email) {
+  let [nombre, dominio] = email.split("@");
+  let mitad = Math.floor(nombre.length / 2);
+  let resultado = nombre.slice(0, mitad).padEnd(mitad + 3, ".") + "@" + dominio;
+  // Mostramos la primera mitad y usamos padStart para añadir los tres puntos
+  //("1234567890@gmail.com")); // "12345...@gmail.com"
+
+  return alert(resultado);
+}
+
+/*
+14.- Define una función que sustituya los espacios en blanco por un guión y, además, convierta todo el
+texto en minúsculas. Escribe también el código necesario para probarla.
+*/
+
+function frase() {
+  let mensaje = prompt("Escribe una frase");
+  convierteFrase(mensaje);
+}
+
+function convierteFrase(mensaje) {
+  let arrayPalabras = mensaje.toLowerCase().replaceAll(" ", "-"); //replaceAll, cambia los espacios por guiones
+  // Reemplaza todos los espacios por guiones y convierte a minúsculas
+
+  return alert(arrayPalabras);
+}
+
+/*
+15.- Escribe una función que reciba dos parámetros, string1 y string2, y que devuelva true si string1
+contiene a string2, o false en caso contrario.
 */
