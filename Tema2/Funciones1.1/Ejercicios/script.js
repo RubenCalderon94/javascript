@@ -5,28 +5,28 @@ String, a cada uno de los elementos del array. ¿Hay algún resultado que no esp
 */
 
 function ejercicio1() {
-  let valores = [3, 3.5, "3", "3.5", "7aaa", "aaa7", "hola"];
+  let valores = [3, 3.5, '3', '3.5', '7aaa', 'aaa7', 'hola'];
 
   for (let valor of valores) {
     console.log(`Valor original: ${valor}`);
 
-    console.log("parseInt:", parseInt(valor));
-    console.log("parseFloat:", parseFloat(valor));
-    console.log("isNaN:", isNaN(valor));
-    console.log("Number:", Number(valor));
-    console.log("String:", String(valor));
+    console.log('parseInt:', parseInt(valor));
+    console.log('parseFloat:', parseFloat(valor));
+    console.log('isNaN:', isNaN(valor));
+    console.log('Number:', Number(valor));
+    console.log('String:', String(valor));
 
-    console.log("---------------------------");
+    console.log('---------------------------');
   }
 }
 
 //2.- Crea una función llamada "DibujarLinea3", que dibuje una línea con 3 asteriscos en la pantalla
 
 function DibujarLinea3() {
-  let linea = "";
+  let linea = '';
 
   for (let i = 0; i < 3; i++) {
-    linea += "*";
+    linea += '*';
   }
   return linea;
 }
@@ -37,9 +37,9 @@ function DibujarLinea3() {
 */
 
 function DibujarCuadrado3x3() {
-  let linea = "";
+  let linea = '';
   for (let i = 0; i < 3; i++) {
-    linea = linea + DibujarLinea3() + "\n";
+    linea = linea + DibujarLinea3() + '\n';
   }
   alert(linea);
 }
@@ -50,14 +50,14 @@ función tendrá un parámetro de entrada con el número de asteriscos a mostrar
 */
 
 function ejercicio4() {
-  let numero = parseInt(prompt("Introduce numero de asteriscos"));
+  let numero = parseInt(prompt('Introduce numero de asteriscos'));
   DibujarLinea(numero); //Llamamos a la funcion y le metemos el parametro que arriba el usuario a introducido
 }
 
 function DibujarLinea(numero) {
-  linea = "";
+  linea = '';
   for (let i = 0; i < numero; i++) {
-    linea = linea + "*";
+    linea = linea + '*';
   }
   alert(linea);
 }
@@ -66,4 +66,126 @@ function DibujarLinea(numero) {
 5.- Crea una función llamada "DibujarCuadrado", que dibuje un cuadrado formado por X filas con X
 asteriscos cada una (esta función deberá llamar a la función creada en el ejercicio anterior). El script
 pedirá al usuario el tamaño del cuadrado, y llamará a la función con ese dato.
+*/
+
+function DibujarCuadrado() {
+  let asteriscos = parseInt(prompt('Introduce numero de asteriscos:'));
+  let filas = parseInt(prompt('Introduce numero de filas:'));
+  DibujarLinea(asteriscos, filas);
+}
+
+function DibujarLinea(asteriscos, filas) {
+  linea = '';
+  for (let i = 0; i < asteriscos; i++) {
+    for (let i = 0; i < filas; i++) {
+      linea = linea + '*';
+    }
+    // Añadir salto de línea al final de cada fila
+    linea = linea + '\n';
+  }
+  alert(linea);
+}
+
+/*
+6.- Crea una función "DibujarRectangulo" que dibuje en pantalla un rectángulo del ancho y alto que se
+indiquen como parámetros. El script pedirá al usuario el tamaño del rectángulo, y llamará a la función con
+ese dato.
+*/
+
+//El ejercicio 5 es igual
+
+/*
+7.- Crea una función "Cubo" que devuelva el cubo de un número real que se indique como parámetro. La
+función tendrá que comprobar que el parámetro es un número (o que se pueda convertir a un número), en
+caso contrario, devolverá false.
+Prueba esta función para calcular el cubo de 3.2 y el de 5, y también prueba a pasarle “hola” como
+parámetro. ¿Qué ocurre?
+*/
+
+function comprobarNumero() {
+  let num = parseInt(prompt('Introduce un numero'));
+  // Comprobamos si NO es un número válido
+  if (isNaN(num)) {
+    alert('Error: Debes introducir un número válido.');
+  }
+  resultado = cubo(num);
+  alert(resultado);
+}
+
+function cubo(numero) {
+  return numero * numero * numero;
+}
+
+/*
+8.- Crea una función "Menor" que devuelva el menor de dos números que recibirá como parámetros.
+*/
+
+function Menor() {
+  let num1 = parseInt(prompt('Introduce un numero'));
+  let num2 = parseInt(prompt('Introduce un numero'));
+  resultado = comprobarMenor(num1, num2);
+  alert('El numero menor es el: ' + resultado);
+}
+
+function comprobarMenor(numero1, numero2) {
+  let minimo = Math.min(numero1, numero2);
+  return minimo;
+}
+
+/*
+9.- Crear 4 funciones: PideNumero, EsPositivo, CalculaMitad y HazTodo
+La función PideNumero, pedirá al usuario que introduzca un número y devuelve el número introducido
+Las funciones EsPositivo y CalculaMitad, no imprimen nada en la consola, simplemente devuelven los
+valores correspondientes.
+La función HazTodo no tendrá ningún parámetro, llamará a las otras tres funciones y mostrará la
+siguiente información en la consola:
+‘El número X es POSITIVO/NEGATIVO’
+‘La mitad de X es Y’
+Fuera de las funciones, solo habrá una llamada a la función HazTodo
+*/
+
+function PideNumero() {
+  let num = parseInt(prompt('Introduce un numero'));
+  return num;
+}
+
+function EsPositivo(numero) {
+  return numero >= 0;
+}
+
+function CalcularMitad(numero) {
+  resultado = numero / 2;
+  return resultado;
+}
+
+function HazTodo() {
+  let num = PideNumero(); //De esta funcion el numero que introduzca arriba, me lo guarda ahora en num
+  let positivo = EsPositivo(num); //pasamos el numero num
+  let mitad = CalcularMitad(num); //pasamos el numero num
+
+  if (positivo) {
+    console.log(`El número ${num} es POSITIVO`);
+  } else {
+    console.log(`El número ${num} es NEGATIVO`);
+  }
+
+  console.log(`La mitad de ${num} es ${mitad}`);
+}
+
+/*
+11.- Escribe una función que dado un string, devuelva un array con las palabras que forman el string.
+¿Qué pasa si el string tiene 3 espacios en blanco seguidos? ¿Se puede solucionar?
+*/
+
+function DevulveArray() {
+  let mensaje = prompt('Escribe un mensaje, lo transformaremos a un array');
+  let arrayPalabras = mensaje.split(' '); //el metodo split, lo separa palabra a palabra
+
+  alert(arrayPalabras);
+}
+
+/*
+12.- Escribe una función que se le pase un nombre completo (string) y devuelve el nombre abreviado (es
+decir, el nombre y la primera letra del primer apellido, seguido de un punto). Escribe también el código
+necesario para probarla.
 */
