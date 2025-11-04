@@ -304,11 +304,13 @@ viernes anterior
 */
 
 function dimeFecha() {
-  let fechaTexto = prompt("Introduce la fecha en formato dd-mm-YYYY");
-  return fechaTexto;
+  //Creamos una funcion para recoger la fecha que introduzca el usuario
+  let fechaUsuario = prompt("Introduce la fecha en formato dd-mm-YYYY");
+  return fechaUsuario;
 }
 
 function fechaVencimiento(fechaTexto) {
+  //Aqui el valor que le pasamos, seria el de abajo de hazTodo1
   // Dividimos el texto en partes
   let partes = fechaTexto.split("-"); // ejemplo: ["03","11","2025"]
   let dia = parseInt(partes[0]);
@@ -319,7 +321,7 @@ function fechaVencimiento(fechaTexto) {
   let fecha = new Date(año, mes, dia);
 
   // Sumamos 20 días
-  fecha.setDate(fecha.getDate() + 20);
+  fecha.setDate(fecha.getDate() + 20); //getDate devuelve el dia actual
 
   // Comprobamos el día de la semana (0=domingo, 6=sábado)
   let diaSemana = fecha.getDay();
@@ -337,9 +339,10 @@ function fechaVencimiento(fechaTexto) {
   let mesFinal = String(fecha.getMonth() + 1).padStart(2, "0"); //asegura que tenga 2 caracteres, y si le falta uno, pone un "0" al principio.
   let añoFinal = fecha.getFullYear(); //Devuelve el año completo (por ejemplo 2025).
 
-  return `${diaFinal}-${mesFinal}-${añoFinal}`;
+  alert(`${diaFinal}-${mesFinal}-${añoFinal}`);
 }
 
-function hazTodo() {
-  let fechaEnTexto = dimeFecha();
+function hazTodo1() {
+  let fecha = dimeFecha(); // guardamos la fecha introducida
+  fechaVencimiento(fecha); // se la pasamos como parámetro;
 }
