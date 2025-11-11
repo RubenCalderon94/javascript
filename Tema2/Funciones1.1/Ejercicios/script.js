@@ -5,28 +5,28 @@ String, a cada uno de los elementos del array. ¿Hay algún resultado que no esp
 */
 
 function ejercicio1() {
-  let valores = [3, 3.5, "3", "3.5", "7aaa", "aaa7", "hola"];
+  let valores = [3, 3.5, '3', '3.5', '7aaa', 'aaa7', 'hola'];
 
   for (let valor of valores) {
     console.log(`Valor original: ${valor}`);
 
-    console.log("parseInt:", parseInt(valor));
-    console.log("parseFloat:", parseFloat(valor));
-    console.log("isNaN:", isNaN(valor));
-    console.log("Number:", Number(valor));
-    console.log("String:", String(valor));
+    console.log('parseInt:', parseInt(valor));
+    console.log('parseFloat:', parseFloat(valor));
+    console.log('isNaN:', isNaN(valor));
+    console.log('Number:', Number(valor));
+    console.log('String:', String(valor));
 
-    console.log("---------------------------");
+    console.log('---------------------------');
   }
 }
 
 //2.- Crea una función llamada "DibujarLinea3", que dibuje una línea con 3 asteriscos en la pantalla
 
 function DibujarLinea3() {
-  let linea = "";
+  let linea = '';
 
   for (let i = 0; i < 3; i++) {
-    linea += "*";
+    linea += '*';
   }
   return linea;
 }
@@ -37,9 +37,9 @@ function DibujarLinea3() {
 */
 
 function DibujarCuadrado3x3() {
-  let linea = "";
+  let linea = '';
   for (let i = 0; i < 3; i++) {
-    linea = linea + DibujarLinea3() + "\n";
+    linea = linea + DibujarLinea3() + '\n';
   }
   alert(linea);
 }
@@ -50,14 +50,14 @@ función tendrá un parámetro de entrada con el número de asteriscos a mostrar
 */
 
 function ejercicio4() {
-  let numero = parseInt(prompt("Introduce numero de asteriscos"));
+  let numero = parseInt(prompt('Introduce numero de asteriscos'));
   DibujarLinea(numero); //Llamamos a la funcion y le metemos el parametro que arriba el usuario a introducido
 }
 
 function DibujarLinea(numero) {
-  linea = "";
+  linea = '';
   for (let i = 0; i < numero; i++) {
-    linea = linea + "*";
+    linea = linea + '*';
   }
   alert(linea);
 }
@@ -69,19 +69,19 @@ pedirá al usuario el tamaño del cuadrado, y llamará a la función con ese dat
 */
 
 function DibujarCuadrado() {
-  let asteriscos = parseInt(prompt("Introduce numero de asteriscos:"));
-  let filas = parseInt(prompt("Introduce numero de filas:"));
+  let asteriscos = parseInt(prompt('Introduce numero de asteriscos:'));
+  let filas = parseInt(prompt('Introduce numero de filas:'));
   DibujarLinea(asteriscos, filas);
 }
 
 function DibujarLinea(asteriscos, filas) {
-  linea = "";
+  linea = '';
   for (let i = 0; i < asteriscos; i++) {
     for (let i = 0; i < filas; i++) {
-      linea = linea + "*";
+      linea = linea + '*';
     }
     // Añadir salto de línea al final de cada fila
-    linea = linea + "\n";
+    linea = linea + '\n';
   }
   alert(linea);
 }
@@ -103,10 +103,10 @@ parámetro. ¿Qué ocurre?
 */
 
 function comprobarNumero() {
-  let num = parseInt(prompt("Introduce un numero"));
+  let num = parseInt(prompt('Introduce un numero'));
   // Comprobamos si NO es un número válido
   if (isNaN(num)) {
-    alert("Error: Debes introducir un número válido.");
+    alert('Error: Debes introducir un número válido.');
   }
   resultado = cubo(num);
   alert(resultado);
@@ -121,10 +121,10 @@ function cubo(numero) {
 */
 
 function Menor() {
-  let num1 = parseInt(prompt("Introduce un numero"));
-  let num2 = parseInt(prompt("Introduce un numero"));
+  let num1 = parseInt(prompt('Introduce un numero'));
+  let num2 = parseInt(prompt('Introduce un numero'));
   resultado = comprobarMenor(num1, num2);
-  alert("El numero menor es el: " + resultado);
+  alert('El numero menor es el: ' + resultado);
 }
 
 function comprobarMenor(numero1, numero2) {
@@ -145,7 +145,7 @@ Fuera de las funciones, solo habrá una llamada a la función HazTodo
 */
 
 function PideNumero() {
-  let num = parseInt(prompt("Introduce un numero"));
+  let num = parseInt(prompt('Introduce un numero'));
   return num;
 }
 
@@ -178,8 +178,8 @@ function HazTodo() {
 */
 
 function DevulveArray() {
-  let mensaje = prompt("Escribe un mensaje, lo transformaremos a un array");
-  let arrayPalabras = mensaje.split(" "); //el metodo split, lo separa palabra a palabra
+  let mensaje = prompt('Escribe un mensaje, lo transformaremos a un array');
+  let arrayPalabras = mensaje.split(' '); //el metodo split, lo separa palabra a palabra
 
   alert(arrayPalabras);
 }
@@ -191,21 +191,21 @@ necesario para probarla.
 */
 
 function escribeNombre() {
-  let nombre = prompt("Escribe tu nombre completo");
+  let nombre = prompt('Escribe tu nombre completo');
   nombreAbreviado(nombre);
 }
 
 function nombreAbreviado(nombre) {
   // Eliminamos espacios sobrantes y separamos el nombre por espacios
-  let partes = nombre.trim().split(" ");
+  let partes = nombre.trim().split(' ');
 
   // Tomamos el primer nombre y el primer apellido
   let nombrePrimero = partes[0];
-  let apellidoPrimero = partes[1] || ""; // por si no hay apellido
+  let apellidoPrimero = partes[1] || ''; // por si no hay apellido
 
   // Creamos el nombre abreviado
   let abreviado =
-    nombrePrimero + " " + apellidoPrimero.charAt(0).toUpperCase() + ".";
+    nombrePrimero + ' ' + apellidoPrimero.charAt(0).toUpperCase() + '.';
 
   return alert(abreviado);
 }
@@ -217,14 +217,14 @@ function nombreAbreviado(nombre) {
 */
 
 function escribeEmail() {
-  let email = prompt("Escribe tu email completo");
+  let email = prompt('Escribe tu email completo');
   ocultaEmail(email);
 }
 
 function ocultaEmail(email) {
-  let [nombre, dominio] = email.split("@");
+  let [nombre, dominio] = email.split('@');
   let mitad = Math.floor(nombre.length / 2);
-  let resultado = nombre.slice(0, mitad).padEnd(mitad + 3, ".") + "@" + dominio;
+  let resultado = nombre.slice(0, mitad).padEnd(mitad + 3, '.') + '@' + dominio;
   // Mostramos la primera mitad y usamos padStart para añadir los tres puntos
   //("1234567890@gmail.com")); // "12345...@gmail.com"
 
@@ -237,12 +237,12 @@ texto en minúsculas. Escribe también el código necesario para probarla.
 */
 
 function frase() {
-  let mensaje = prompt("Escribe una frase");
+  let mensaje = prompt('Escribe una frase');
   convierteFrase(mensaje);
 }
 
 function convierteFrase(mensaje) {
-  let arrayPalabras = mensaje.toLowerCase().replaceAll(" ", "-"); //replaceAll, cambia los espacios por guiones
+  let arrayPalabras = mensaje.toLowerCase().replaceAll(' ', '-'); //replaceAll, cambia los espacios por guiones
   // Reemplaza todos los espacios por guiones y convierte a minúsculas
 
   return alert(arrayPalabras);
@@ -254,8 +254,8 @@ contiene a string2, o false en caso contrario.
 */
 
 function frase1() {
-  let string1 = prompt("Escribe la primera palabra");
-  let string2 = prompt("Escribe la segunda palabra");
+  let string1 = prompt('Escribe la primera palabra');
+  let string2 = prompt('Escribe la segunda palabra');
   let resultado = dosString(string1, string2);
   console.log(resultado);
 }
@@ -270,8 +270,8 @@ simular el funcionamiento de un dado.
 */
 
 function aleatorio() {
-  let valor1 = parseInt(prompt("Escribe el primer numero:"));
-  let valor2 = parseInt(prompt("Escribe el segundo numero:"));
+  let valor1 = parseInt(prompt('Escribe el primer numero:'));
+  let valor2 = parseInt(prompt('Escribe el segundo numero:'));
   dado(valor1, valor2);
 }
 
@@ -305,14 +305,14 @@ viernes anterior
 
 function dimeFecha() {
   //Creamos una funcion para recoger la fecha que introduzca el usuario
-  let fechaUsuario = prompt("Introduce la fecha en formato dd-mm-YYYY");
+  let fechaUsuario = prompt('Introduce la fecha en formato dd-mm-YYYY');
   return fechaUsuario;
 }
 
 function fechaVencimiento(fechaTexto) {
   //Aqui el valor que le pasamos, seria el de abajo de hazTodo1
   // Dividimos el texto en partes
-  let partes = fechaTexto.split("-"); // ejemplo: ["03","11","2025"]
+  let partes = fechaTexto.split('-'); // ejemplo: ["03","11","2025"]
   let dia = parseInt(partes[0]);
   let mes = parseInt(partes[1]) - 1; // en JS los meses van de 0 a 11
   let año = parseInt(partes[2]);
@@ -320,7 +320,7 @@ function fechaVencimiento(fechaTexto) {
   // Creamos la fecha original
   let fecha = new Date(año, mes, dia);
 
-  // Sumamos 20 días
+  // Sumamos 20 días y utilizamos setDate para modificar
   fecha.setDate(fecha.getDate() + 20); //getDate devuelve el dia actual
 
   // Comprobamos el día de la semana (0=domingo, 6=sábado)
@@ -335,8 +335,8 @@ function fechaVencimiento(fechaTexto) {
   }
 
   // Formateamos para mostrar dd-mm-YYYY
-  let diaFinal = String(fecha.getDate()).padStart(2, "0"); //asegura que tenga 2 caracteres, y si le falta uno, pone un "0" al principio.
-  let mesFinal = String(fecha.getMonth() + 1).padStart(2, "0"); //asegura que tenga 2 caracteres, y si le falta uno, pone un "0" al principio.
+  let diaFinal = String(fecha.getDate()).padStart(2, '0'); //asegura que tenga 2 caracteres, y si le falta uno, pone un "0" al principio.
+  let mesFinal = String(fecha.getMonth() + 1).padStart(2, '0'); //asegura que tenga 2 caracteres, y si le falta uno, pone un "0" al principio.
   let añoFinal = fecha.getFullYear(); //Devuelve el año completo (por ejemplo 2025).
 
   alert(`${diaFinal}-${mesFinal}-${añoFinal}`);
@@ -345,4 +345,64 @@ function fechaVencimiento(fechaTexto) {
 function hazTodo1() {
   let fecha = dimeFecha(); // guardamos la fecha introducida
   fechaVencimiento(fecha); // se la pasamos como parámetro;
+}
+
+/*
+19. Hacer una función que reciba dos parámetros (mes y año). Con esos datos tiene que mostrar la
+siguiente información (por ejemplo, si le pasamos el mes de Octubre y el año 2020:
+
+*/
+
+// Función que recibe dos parámetros: mes y año
+function muestraMes(mes, año) {
+  // Restamos 1 al mes porque en JavaScript los meses van del 0 al 11
+  // (Enero = 0, Febrero = 1, Marzo = 2, ... Diciembre = 11)
+  mes--;
+
+  // Array con los nombres abreviados de los días de la semana
+  let dias = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
+
+  // Variable donde iremos guardando el resultado (texto HTML)
+  // Empezamos por la primera semana
+  let rdo = 'Semana 1: ';
+
+  // Creamos un objeto Date con el día 1 del mes y año que recibimos
+  let fecha = new Date(año, mes, 1);
+
+  // Variable para ir contando el número de semana
+  let numSemana = 1;
+
+  // Bucle que recorre todos los días del mes
+  while (mes == fecha.getMonth()) {
+    // Mientras el mes de la fecha sea igual al mes original, seguimos
+
+    // Obtenemos el día de la semana (0=Domingo, 1=Lunes, etc.)
+    let diaSemana = fecha.getDay();
+
+    // Si el día es Lunes (1), significa que empieza una nueva semana
+    if (diaSemana == 1) {
+      rdo += '<br>'; // salto de línea en HTML
+      numSemana++; // aumentamos el contador de semana
+      rdo += `Semana ${numSemana}: `; // añadimos el texto de la nueva semana
+    }
+
+    // Añadimos el día del mes y el nombre del día entre paréntesis
+    // Ejemplo: "1(Jue)"
+    rdo += fecha.getDate() + '(' + dias[fecha.getDay()] + ') ';
+
+    // Pasamos al siguiente día del mes
+    fecha.setDate(fecha.getDate() + 1);
+  }
+
+  // Devolvemos el texto generado con todas las semanas y días
+  return rdo;
+}
+
+// Esta función ejecuta el ejercicio, mostrando el resultado en pantalla
+function ejercicio19() {
+  // Llamamos a la función muestraMes con los parámetros (mes 2 = febrero, año 2024)
+  let rdo = muestraMes(2, 2024);
+
+  // Mostramos el resultado dentro del elemento HTML con id="rdo"
+  document.getElementById('rdo').innerHTML = rdo;
 }
