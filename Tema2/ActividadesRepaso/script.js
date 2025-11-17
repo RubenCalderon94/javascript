@@ -10,31 +10,31 @@ Si no es válido, le indicará el error y volverá a pedirlo hasta que sea váli
 
 function compruebaDNI() {
   do {
-    let usuario = parseInt(prompt("Escribe 8 digitos, y calcularemos tu DNI"));
+    let usuario = parseInt(prompt('Escribe 8 digitos, y calcularemos tu DNI'));
     let letras = [
-      "T",
-      "R",
-      "W",
-      "A",
-      "G",
-      "M",
-      "Y",
-      "F",
-      "P",
-      "D",
-      "X",
-      "B",
-      "N",
-      "J",
-      "Z",
-      "S",
-      "Q",
-      "V",
-      "H",
-      "L",
-      "C",
-      "K",
-      "E",
+      'T',
+      'R',
+      'W',
+      'A',
+      'G',
+      'M',
+      'Y',
+      'F',
+      'P',
+      'D',
+      'X',
+      'B',
+      'N',
+      'J',
+      'Z',
+      'S',
+      'Q',
+      'V',
+      'H',
+      'L',
+      'C',
+      'K',
+      'E',
     ];
 
     let resultado = usuario % 23;
@@ -46,9 +46,9 @@ function compruebaDNI() {
         letraPosicion = letras[indice];
       } //
     }
-    alert("Tu dni es: " + usuario + letraPosicion);
+    alert('Tu dni es: ' + usuario + letraPosicion);
   } while (usuario < 0 || usuario > 99999999);
-  alert("Error");
+  alert('Error');
 }
 
 /*
@@ -61,21 +61,21 @@ Utilizando la estructura for, crear un script que calcule el factorial de un nú
 function factorial() {
   // Pedimos al usuario un número
   let numero = parseInt(
-    prompt("Introduce un número entero para calcular su factorial:")
+    prompt('Introduce un número entero para calcular su factorial:')
   );
 
   // Comprobamos que sea un número válido
   if (isNaN(numero) || numero < 0) {
-    alert("Número inválido. Debe ser un entero positivo o cero.");
+    alert('Número inválido. Debe ser un entero positivo o cero.');
   } else {
     let factorial = 1; // Empezamos con 1 porque multiplicar por 0 daría 0
 
     // Bucle para calcular el factorial
     for (let i = 1; i <= numero; i++) {
-      factorial *= i; // factorial = factorial * i
+      factorial = factorial * i; // factorial = factorial * i
     }
 
-    alert("El factorial de " + numero + " es: " + factorial);
+    alert('El factorial de ' + numero + ' es: ' + factorial);
   }
 }
 
@@ -88,14 +88,14 @@ devuelto por la función.
 
 function compruebaParInpar(numero) {
   if (numero % 2 == 0) {
-    alert(numero + " Numero par");
+    alert(numero + ' Numero par');
   } else {
-    alert(numero + " Numero impar");
+    alert(numero + ' Numero impar');
   }
 }
 
 function escribeNumero() {
-  let usuario = parseInt(prompt("Escribe un numero"));
+  let usuario = parseInt(prompt('Escribe un numero'));
   return usuario;
 }
 
@@ -110,13 +110,13 @@ argumento. A partir de la cadena que se le pasa, la función determina si esa ca
 por mayúsculas, sólo por minúsculas o por una mezcla de ambas.*/
 
 function cadenaTexto() {
-  let frase = prompt("Introduce una frase");
+  let frase = prompt('Introduce una frase');
   if (frase === frase.toUpperCase()) {
-    alert("La frase está formada sólo por MAYÚSCULAS.");
+    alert('La frase está formada sólo por MAYÚSCULAS.');
   } else if (frase === frase.toLowerCase()) {
-    alert("La frase está formada sólo por minúsculas.");
+    alert('La frase está formada sólo por minúsculas.');
   } else {
-    alert("La frase tiene MAYÚSCULAS y minúsculas mezcladas.");
+    alert('La frase tiene MAYÚSCULAS y minúsculas mezcladas.');
   }
 }
 
@@ -128,12 +128,107 @@ suma. Si repetimos 36.000 veces esta operación, ¿qué porcentaje sale de cada 
 */
 
 function dado() {
-  let array = new Array();
+  let arrayResultado = new Array(); //array para guardar resultados
+  let arrayApariciones = new Array(); //array que nos va a valer como contador en vez de variable numero, en variable array
 
-  for (let i = 1; i <= 10; i++) {
+  // Inicializamos apariciones de 2 a 12 en 0
+  for (let i = 2; i <= 12; i++) {
+    arrayApariciones[i] = 0; //inicializamos en 0
+  }
+
+  for (let i = 1; i <= 36000; i++) {
     let dado1 = Math.floor(Math.random() * 6) + 1;
     let dado2 = Math.floor(Math.random() * 6) + 1;
     let resultado = dado1 + dado2;
-    array.push(resultado);
+    arrayResultado.push(resultado);
+    arrayApariciones[resultado]++; // contamos la suma
+  }
+
+  // Mostramos el porcentaje de cada suma
+  for (let i = 2; i <= 12; i++) {
+    let porcentaje = (arrayApariciones[i] / 36000) * 100;
+    console.log('Suma ' + i + ': ' + porcentaje.toFixed(2) + '%');
+  }
+}
+
+/*
+Ejercicio 6.
+Hacer un trivial sencillo. El funcionamiento del programa será el siguiente:
+- Te doy los arrays enunciados, respuestas y soluciones.
+enunciados[n] = ‘Enunciado de la pregunta’;
+respuestas[n] = array(‘respuesta 1’,’respuesta 2’,’respuesta 3’,’respuesta 4’);
+solucion[n] = indice; // Indice de la respuesta correcta
+- Crear una función: preguntaSimple
+○ Recibe como parámetros un texto (con el enunciado de la pregunta), un array (con las
+posibles respuestas) y número (indica número del elemento del array que tiene la respuesta correcta)
+○ Esta función genera un prompt con el enunciado y las respuestas, y el usuario tiene que
+indicar el ‘número de la respuesta correcta’. 
+○ Devuelve true si ha acertado y false en caso contrario.
+● El programa elegirá 5 preguntas (de las 10) al azar(sin repetir la misma pregunta) y se las irá preguntando al
+usuario.
+● Al terminar, el programa mostrará un mensaje indicando la puntuación de respuestas
+acertadas.
+● Y, por último, le pregunta al usuario si quiere volver a jugar.
+*/
+
+function preguntaSimple(params) {
+  do {} while (condition);
+}
+
+function generaPreguntas() {
+  let enunciados = [
+    '¿Cuál es el río más largo del mundo?',
+    '¿En qué año llegó el ser humano a la Luna?',
+    '¿Cuál es la capital de Australia?',
+    '¿Quién pintó La última cena?',
+    '¿Cuál es el metal más abundante en la corteza terrestre?',
+    '¿Qué país tiene la mayor población del mundo?',
+    '¿En qué continente se encuentra la cordillera de los Andes?',
+    '¿Qué científico propuso la teoría de la relatividad?',
+    '¿Cuál es el océano más grande del planeta?',
+    '¿Qué país inventó la pólvora?',
+  ];
+
+  let respuestas = [
+    ['Amazonas', 'Nilo', 'Yangtsé', 'Misisipi'],
+    ['1965', '1969', '1972', '1959'],
+    ['Sídney', 'Camberra', 'Melbourne', 'Perth'],
+    ['Miguel Ángel', 'Leonardo da Vinci', 'Rafael', 'Caravaggio'],
+    ['Hierro', 'Cobre', 'Aluminio', 'Plata'],
+    ['India', 'Estados Unidos', 'China', 'Indonesia'],
+    ['Asia', 'América', 'Europa', 'África'],
+    ['Isaac Newton', 'Albert Einstein', 'Nikola Tesla', 'Galileo Galilei'],
+    ['Atlántico', 'Índico', 'Ártico', 'Pacífico'],
+    ['China', 'Japón', 'Corea', 'India'],
+  ];
+
+  let solucion = [
+    1, // Amazonas (aunque hay debate, hoy se considera el más largo)
+    2, // 1969
+    2, // Camberra
+    2, // Leonardo da Vinci
+    3, // Aluminio
+    3, // China
+    2, // América (Andes)
+    2, // Einstein
+    4, // Pacífico
+    1, // China
+  ];
+
+  let index = 0;
+
+  for (let enunciado of enunciados) {
+    let texto = enunciado + '\n\n';
+
+    let contador = 1; // para enumerar sin Number()
+
+    for (let j in respuestas[index]) {
+      texto += contador + '. ' + respuestas[index][j] + '\n';
+      contador++;
+    }
+
+    alert(texto);
+
+    index++;
   }
 }
