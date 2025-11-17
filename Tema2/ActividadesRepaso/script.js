@@ -10,31 +10,31 @@ Si no es válido, le indicará el error y volverá a pedirlo hasta que sea váli
 
 function compruebaDNI() {
   do {
-    let usuario = parseInt(prompt('Escribe 8 digitos, y calcularemos tu DNI'));
+    let usuario = parseInt(prompt("Escribe 8 digitos, y calcularemos tu DNI"));
     let letras = [
-      'T',
-      'R',
-      'W',
-      'A',
-      'G',
-      'M',
-      'Y',
-      'F',
-      'P',
-      'D',
-      'X',
-      'B',
-      'N',
-      'J',
-      'Z',
-      'S',
-      'Q',
-      'V',
-      'H',
-      'L',
-      'C',
-      'K',
-      'E',
+      "T",
+      "R",
+      "W",
+      "A",
+      "G",
+      "M",
+      "Y",
+      "F",
+      "P",
+      "D",
+      "X",
+      "B",
+      "N",
+      "J",
+      "Z",
+      "S",
+      "Q",
+      "V",
+      "H",
+      "L",
+      "C",
+      "K",
+      "E",
     ];
 
     let resultado = usuario % 23;
@@ -46,9 +46,9 @@ function compruebaDNI() {
         letraPosicion = letras[indice];
       } //
     }
-    alert('Tu dni es: ' + usuario + letraPosicion);
+    alert("Tu dni es: " + usuario + letraPosicion);
   } while (usuario < 0 || usuario > 99999999);
-  alert('Error');
+  alert("Error");
 }
 
 /*
@@ -61,12 +61,12 @@ Utilizando la estructura for, crear un script que calcule el factorial de un nú
 function factorial() {
   // Pedimos al usuario un número
   let numero = parseInt(
-    prompt('Introduce un número entero para calcular su factorial:')
+    prompt("Introduce un número entero para calcular su factorial:")
   );
 
   // Comprobamos que sea un número válido
   if (isNaN(numero) || numero < 0) {
-    alert('Número inválido. Debe ser un entero positivo o cero.');
+    alert("Número inválido. Debe ser un entero positivo o cero.");
   } else {
     let factorial = 1; // Empezamos con 1 porque multiplicar por 0 daría 0
 
@@ -75,7 +75,7 @@ function factorial() {
       factorial = factorial * i; // factorial = factorial * i
     }
 
-    alert('El factorial de ' + numero + ' es: ' + factorial);
+    alert("El factorial de " + numero + " es: " + factorial);
   }
 }
 
@@ -88,14 +88,14 @@ devuelto por la función.
 
 function compruebaParInpar(numero) {
   if (numero % 2 == 0) {
-    alert(numero + ' Numero par');
+    alert(numero + " Numero par");
   } else {
-    alert(numero + ' Numero impar');
+    alert(numero + " Numero impar");
   }
 }
 
 function escribeNumero() {
-  let usuario = parseInt(prompt('Escribe un numero'));
+  let usuario = parseInt(prompt("Escribe un numero"));
   return usuario;
 }
 
@@ -110,13 +110,13 @@ argumento. A partir de la cadena que se le pasa, la función determina si esa ca
 por mayúsculas, sólo por minúsculas o por una mezcla de ambas.*/
 
 function cadenaTexto() {
-  let frase = prompt('Introduce una frase');
+  let frase = prompt("Introduce una frase");
   if (frase === frase.toUpperCase()) {
-    alert('La frase está formada sólo por MAYÚSCULAS.');
+    alert("La frase está formada sólo por MAYÚSCULAS.");
   } else if (frase === frase.toLowerCase()) {
-    alert('La frase está formada sólo por minúsculas.');
+    alert("La frase está formada sólo por minúsculas.");
   } else {
-    alert('La frase tiene MAYÚSCULAS y minúsculas mezcladas.');
+    alert("La frase tiene MAYÚSCULAS y minúsculas mezcladas.");
   }
 }
 
@@ -147,7 +147,7 @@ function dado() {
   // Mostramos el porcentaje de cada suma
   for (let i = 2; i <= 12; i++) {
     let porcentaje = (arrayApariciones[i] / 36000) * 100;
-    console.log('Suma ' + i + ': ' + porcentaje.toFixed(2) + '%');
+    console.log("Suma " + i + ": " + porcentaje.toFixed(2) + "%");
   }
 }
 
@@ -171,64 +171,70 @@ acertadas.
 ● Y, por último, le pregunta al usuario si quiere volver a jugar.
 */
 
-function preguntaSimple(params) {
-  do {} while (condition);
+function preguntaSimple(enunciado, respuestas, solucionIndex) {
+  let texto = enunciado + "\n\n";
+
+  // for…in recorre los índices del array de respuestas
+  for (let i in respuestas) {
+    texto += Number(i) + 1 + ". " + respuestas[i] + "\n";
+  }
+
+  let respuestaUsuario = Number(prompt(texto));
+
+  return respuestaUsuario === solucionIndex; // true o false
 }
 
 function generaPreguntas() {
   let enunciados = [
-    '¿Cuál es el río más largo del mundo?',
-    '¿En qué año llegó el ser humano a la Luna?',
-    '¿Cuál es la capital de Australia?',
-    '¿Quién pintó La última cena?',
-    '¿Cuál es el metal más abundante en la corteza terrestre?',
-    '¿Qué país tiene la mayor población del mundo?',
-    '¿En qué continente se encuentra la cordillera de los Andes?',
-    '¿Qué científico propuso la teoría de la relatividad?',
-    '¿Cuál es el océano más grande del planeta?',
-    '¿Qué país inventó la pólvora?',
+    "¿Cuál es el río más largo del mundo?",
+    "¿En qué año llegó el ser humano a la Luna?",
+    "¿Cuál es la capital de Australia?",
+    "¿Quién pintó La última cena?",
+    "¿Cuál es el metal más abundante en la corteza terrestre?",
+    "¿Qué país tiene la mayor población del mundo?",
+    "¿En qué continente se encuentra la cordillera de los Andes?",
+    "¿Qué científico propuso la teoría de la relatividad?",
+    "¿Cuál es el océano más grande del planeta?",
+    "¿Qué país inventó la pólvora?",
   ];
 
   let respuestas = [
-    ['Amazonas', 'Nilo', 'Yangtsé', 'Misisipi'],
-    ['1965', '1969', '1972', '1959'],
-    ['Sídney', 'Camberra', 'Melbourne', 'Perth'],
-    ['Miguel Ángel', 'Leonardo da Vinci', 'Rafael', 'Caravaggio'],
-    ['Hierro', 'Cobre', 'Aluminio', 'Plata'],
-    ['India', 'Estados Unidos', 'China', 'Indonesia'],
-    ['Asia', 'América', 'Europa', 'África'],
-    ['Isaac Newton', 'Albert Einstein', 'Nikola Tesla', 'Galileo Galilei'],
-    ['Atlántico', 'Índico', 'Ártico', 'Pacífico'],
-    ['China', 'Japón', 'Corea', 'India'],
+    ["Amazonas", "Nilo", "Yangtsé", "Misisipi"],
+    ["1965", "1969", "1972", "1959"],
+    ["Sídney", "Camberra", "Melbourne", "Perth"],
+    ["Miguel Ángel", "Leonardo da Vinci", "Rafael", "Caravaggio"],
+    ["Hierro", "Cobre", "Aluminio", "Plata"],
+    ["India", "Estados Unidos", "China", "Indonesia"],
+    ["Asia", "América", "Europa", "África"],
+    ["Isaac Newton", "Albert Einstein", "Nikola Tesla", "Galileo Galilei"],
+    ["Atlántico", "Índico", "Ártico", "Pacífico"],
+    ["China", "Japón", "Corea", "India"],
   ];
 
-  let solucion = [
-    1, // Amazonas (aunque hay debate, hoy se considera el más largo)
-    2, // 1969
-    2, // Camberra
-    2, // Leonardo da Vinci
-    3, // Aluminio
-    3, // China
-    2, // América (Andes)
-    2, // Einstein
-    4, // Pacífico
-    1, // China
-  ];
+  let solucion = [1, 2, 2, 2, 3, 3, 2, 2, 4, 1];
 
-  let index = 0;
+  do {
+    let usadas = new Set(); // inicializamos el set
+    let aciertos = 0;
 
-  for (let enunciado of enunciados) {
-    let texto = enunciado + '\n\n';
-
-    let contador = 1; // para enumerar sin Number()
-
-    for (let j in respuestas[index]) {
-      texto += contador + '. ' + respuestas[index][j] + '\n';
-      contador++;
+    // Elegir 5 preguntas al azar sin repetir
+    while (usadas.size < 5) {
+      let aleatorio = Math.floor(Math.random() * enunciados.length);
+      usadas.add(aleatorio);
     }
 
-    alert(texto);
+    // for…of recorre directamente los índices guardados en el set
+    for (let indice of usadas) {
+      if (
+        preguntaSimple(enunciados[indice], respuestas[indice], solucion[indice])
+      ) {
+        aciertos++;
+      }
+    }
 
-    index++;
-  }
+    alert("Has acertado " + aciertos + " de 5.");
+  } while (confirm("¿Quieres volver a jugar?"));
 }
+
+// Ejecutamos el trivial
+generaPreguntas();
