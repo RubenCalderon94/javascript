@@ -134,3 +134,65 @@ function insertaNum() {
   document.getElementById("numeros").innerHTML = rdo;
   //esto es para meter dentro de div
 }
+
+/*
+Ejercicio 6. Nos han encargado realizar un programa para el recuento de votos de las
+mejores luces de navidad de Extremadura, para ellos nos dan un array donde está el
+nombre del pueblo y el número de puntos asignados. Como los puntos vienen de
+distintas entidades y organismos para su recogida, puede haber la misma ciudad
+repetida varias veces, por lo que sumaremos los puntos a la misma ciudad. Ejemplo, si
+nos dan el array: Zafra-8puntos, Mérida-23puntos, Badajoz-13puntos, Zafra-4puntos,
+Mérida-1punto. Debemos mostrar que Zafra ha obtenido 12 puntos, Mérida 24 puntos
+y Badajoz 13 puntos.
+7.1. Ordenar las ciudades para que se muestren según sus puntos de mayor a menor,
+en el ejemplo anterior se mostraría: Mérida: 24 puntos, Badajoz: 13 puntos y Zafra: 12
+puntos. Mostrar al usuario el resultado en una ventana emergente.
+Código necesario:
+Array de puntos:
+["Zafra-8puntos", "Mérida-23puntos", "Badajoz-4puntos", "Zafra-3puntos",
+"Almendralejo-12puntos", "Mérida-4puntos", "Badajoz-15puntos", "Zafra-2puntos",
+"Mérida-7puntos", "Zafra-11puntos", "Almendralejo-31puntos", "Aceuchal-3puntos",
+"Almendralejo-7puntos", "La Parra-17puntos", "Aceuchal-15puntos", "Zafra-6puntos"] */
+
+function contarPuntos() {
+  let repetidos = [
+    "Zafra-8puntos",
+    "Mérida-23puntos",
+    "Badajoz-4puntos",
+    "Zafra-3puntos",
+    "Almendralejo-12puntos",
+    "Mérida-4puntos",
+    "Badajoz-15puntos",
+    "Zafra-2puntos",
+    "Mérida-7puntos",
+    "Zafra-11puntos",
+    "Almendralejo-31puntos",
+    "Aceuchal-3puntos",
+    "Almendralejo-7puntos",
+    "La Parra-17puntos",
+    "Aceuchal-15puntos",
+    "Zafra-6puntos",
+  ];
+
+  let arrayNuevo=[];
+
+  for (const valor of repetidos) {
+    partes=valor.split("-");
+    let ciudad = partes[0];
+    let arrayPuntos = partes[1].split("p");
+    let puntos = arrayPuntos[0]
+
+  };
+
+
+
+
+
+
+  
+  
+
+
+
+
+}
