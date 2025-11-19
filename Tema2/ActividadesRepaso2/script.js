@@ -48,9 +48,89 @@ los 3 primeros y el resto que los rellene con asteriscos.
 */
 
 function digitosOcultos() {
-  let nombreUsuario = parseInt(prompt("Introduce tu nombre"));
+  let nombreUsuario = prompt("Introduce tu nombre");
 
-  nombreUsuario.slice(0, 4);
+  let inicioNombre = nombreUsuario.slice(0, 3); //con slice la palabra introducida obtiene esas posiciones
 
-  alert(nombreUsuario);
+  let cantidadAsteriscos = nombreUsuario.length - 3;
+
+  let asteriscos = "*".repeat(cantidadAsteriscos);
+
+  let total = inicioNombre + asteriscos;
+
+  alert(total);
+}
+
+/*
+Ejercicio 4. Crear un ejercicio que pida el número de divs a mostrar y cuántos párrafos
+tendrán dichos divs. Se deberá escribir en pantalla los divs con una clase que definas
+que lo que haga sea poner un color de fondo y un margen inferior de 10px para
+separar los divs y dentro de cada div tantos párrafos con el texto Parrafo X donde X
+será las veces que ha aparecido, por ejemplo: Parrafo:1, Parrafo:2...
+ */
+
+function numerosDiv() {
+  let divs = parseInt(prompt("Introduce numeros de divs"));
+  let parrafos = parseInt(prompt("Introduce numeros de parrafos"));
+
+  let rdo = ""; //cramos la variable vacia, luego la vamos a utilizar
+
+  for (let i = 1; i <= divs; i++) {
+    //recorremos el numero de divs que el usuario introduce
+    rdo += '<div style="background-color:red; margin-bottom:10px;">'; //cada vuelta le vamos sumando 1 mas
+    for (let j = 1; j <= parrafos; j++) {
+      // recorremos el numero de parrafos
+
+      rdo += "<p> Parrafo:" + j + "</p>"; ////cada vuelta le vamos sumando 1 mas
+    }
+
+    rdo += "</div>"; //cerramos el bucle y la variable rdo
+  }
+
+  document.getElementById("divs").innerHTML = rdo;
+  //esto es para meter dentro de div
+}
+
+/*
+Ejercicio 5. Nos dan un array con los números de la ONCE de los últimos 10 días:
+“12345”,“00124”,“04586”,“98472”,“71920”,“54102”,“00013”,“29863”,“10978”,“47101”
+Se debe pedir al usuario que inserte el número que quiere comprobar y mostrará “El
+número X ha sido premiado en los últimos 10 días” o “El número X no ha sido
+premiado. Sigue intentándolo”.
+Hay que tener en cuenta que el usuario puede poner el número “13” y el programa
+mostrará que sí ha salido premiado, por lo que habrá que controlar los ceros a la
+izquierda: Si el usuario pone “13” el mensaje será “El número 00013 ha sido
+premiado….
+ */
+
+function insertaNum() {
+  let arrayComprobar = new Array(
+    "12345",
+    "00124",
+    "04586",
+    "98472",
+    "71920",
+    "54102",
+    "00013",
+    "29863",
+    "10978",
+    "47101"
+  );
+
+  let usuario = prompt("Inserta tu numero:");
+
+  let usuarioPadstar = usuario.padStart(5, "0");
+
+  let rdo = "";
+
+  for (const valor of arrayComprobar) {
+    if (valor == usuarioPadstar) {
+      rdo = "El numero ha sido premiado";
+      break; // ← IMPORTANTE NECESITA EL BREAK SI NO DA ERROR,
+    } else {
+      rdo = "El numero no ha sido premiado";
+    }
+  }
+  document.getElementById("numeros").innerHTML = rdo;
+  //esto es para meter dentro de div
 }
