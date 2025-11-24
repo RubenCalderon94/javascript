@@ -4,23 +4,23 @@ Dentro cada una de las celdas deberá escribirse un número consecutivo en orden
 descendente. Si, por ejemplo, la tabla es de 7×5 los números irán del 35 al 1.
 */
 function ejercicio1() {
-  let fila = parseInt(prompt('Introduce número de filas'));
-  let columnas = parseInt(prompt('Introduce número de columnas'));
+  let fila = parseInt(prompt("Introduce número de filas"));
+  let columnas = parseInt(prompt("Introduce número de columnas"));
   let numRellenar = fila * columnas;
 
   let rdo = "<table border='1'>"; // borde para que se vea
 
   for (let i = 0; i < fila; i++) {
-    rdo = rdo + '<tr>';
+    rdo = rdo + "<tr>";
     for (let j = 0; j < columnas; j++) {
-      rdo += '<td>' + numRellenar + '</td>';
+      rdo += "<td>" + numRellenar + "</td>";
       numRellenar--; // decrementamos el número
     }
-    rdo = rdo + '</tr>';
+    rdo = rdo + "</tr>";
   }
 
-  rdo += '</table>';
-  document.getElementById('tabla').innerHTML = rdo;
+  rdo += "</table>";
+  document.getElementById("tabla").innerHTML = rdo;
 }
 
 /*
@@ -36,9 +36,9 @@ function sacarAleatorio() {
   let numeroAleatorioEntre1y10 = Math.floor(Math.random() * 10) + 1; // un número entre 1 y 10
 
   if (numeroAleatorioEntre1y10 === 5) {
-    alert('El nuemero aleatorio es 5: ' + numeroAleatorioEntre1y10);
+    alert("El nuemero aleatorio es 5: " + numeroAleatorioEntre1y10);
   } else {
-    alert('El numero aleatorio no es el 5: ' + numeroAleatorioEntre1y10);
+    alert("El numero aleatorio no es el 5: " + numeroAleatorioEntre1y10);
   }
 }
 
@@ -48,13 +48,13 @@ los 3 primeros y el resto que los rellene con asteriscos.
 */
 
 function digitosOcultos() {
-  let nombreUsuario = prompt('Introduce tu nombre');
+  let nombreUsuario = prompt("Introduce tu nombre");
 
   let inicioNombre = nombreUsuario.slice(0, 3); //con slice la palabra introducida obtiene esas posiciones
 
   let cantidadAsteriscos = nombreUsuario.length - 3;
 
-  let asteriscos = '*'.repeat(cantidadAsteriscos);
+  let asteriscos = "*".repeat(cantidadAsteriscos);
 
   let total = inicioNombre + asteriscos;
 
@@ -70,10 +70,10 @@ será las veces que ha aparecido, por ejemplo: Parrafo:1, Parrafo:2...
  */
 
 function numerosDiv() {
-  let divs = parseInt(prompt('Introduce numeros de divs'));
-  let parrafos = parseInt(prompt('Introduce numeros de parrafos'));
+  let divs = parseInt(prompt("Introduce numeros de divs"));
+  let parrafos = parseInt(prompt("Introduce numeros de parrafos"));
 
-  let rdo = ''; //cramos la variable vacia, luego la vamos a utilizar
+  let rdo = ""; //cramos la variable vacia, luego la vamos a utilizar
 
   for (let i = 1; i <= divs; i++) {
     //recorremos el numero de divs que el usuario introduce
@@ -81,13 +81,13 @@ function numerosDiv() {
     for (let j = 1; j <= parrafos; j++) {
       // recorremos el numero de parrafos
 
-      rdo += '<p> Parrafo:' + j + '</p>'; ////cada vuelta le vamos sumando 1 mas
+      rdo += "<p> Parrafo:" + j + "</p>"; ////cada vuelta le vamos sumando 1 mas
     }
 
-    rdo += '</div>'; //cerramos el bucle y la variable rdo
+    rdo += "</div>"; //cerramos el bucle y la variable rdo
   }
 
-  document.getElementById('divs').innerHTML = rdo;
+  document.getElementById("divs").innerHTML = rdo;
   //esto es para meter dentro de div
 }
 
@@ -105,33 +105,33 @@ premiado….
 
 function insertaNum() {
   let arrayComprobar = new Array(
-    '12345',
-    '00124',
-    '04586',
-    '98472',
-    '71920',
-    '54102',
-    '00013',
-    '29863',
-    '10978',
-    '47101'
+    "12345",
+    "00124",
+    "04586",
+    "98472",
+    "71920",
+    "54102",
+    "00013",
+    "29863",
+    "10978",
+    "47101"
   );
 
-  let usuario = prompt('Inserta tu numero:');
+  let usuario = prompt("Inserta tu numero:");
 
-  let usuarioPadstar = usuario.padStart(5, '0');
+  let usuarioPadstar = usuario.padStart(5, "0");
 
-  let rdo = '';
+  let rdo = "";
 
   for (const valor of arrayComprobar) {
     if (valor == usuarioPadstar) {
-      rdo = 'El numero ha sido premiado';
+      rdo = "El numero ha sido premiado";
       break; // ← IMPORTANTE NECESITA EL BREAK SI NO DA ERROR,
     } else {
-      rdo = 'El numero no ha sido premiado';
+      rdo = "El numero no ha sido premiado";
     }
   }
-  document.getElementById('numeros').innerHTML = rdo;
+  document.getElementById("numeros").innerHTML = rdo;
   //esto es para meter dentro de div
 }
 
@@ -156,30 +156,164 @@ Array de puntos:
 
 function contarPuntos() {
   let repetidos = [
-    'Zafra-8puntos',
-    'Mérida-23puntos',
-    'Badajoz-4puntos',
-    'Zafra-3puntos',
-    'Almendralejo-12puntos',
-    'Mérida-4puntos',
-    'Badajoz-15puntos',
-    'Zafra-2puntos',
-    'Mérida-7puntos',
-    'Zafra-11puntos',
-    'Almendralejo-31puntos',
-    'Aceuchal-3puntos',
-    'Almendralejo-7puntos',
-    'La Parra-17puntos',
-    'Aceuchal-15puntos',
-    'Zafra-6puntos',
+    "Zafra-8puntos",
+    "Mérida-23puntos",
+    "Badajoz-4puntos",
+    "Zafra-3puntos",
+    "Almendralejo-12puntos",
+    "Mérida-4puntos",
+    "Badajoz-15puntos",
+    "Zafra-2puntos",
+    "Mérida-7puntos",
+    "Zafra-11puntos",
+    "Almendralejo-31puntos",
+    "Aceuchal-3puntos",
+    "Almendralejo-7puntos",
+    "La Parra-17puntos",
+    "Aceuchal-15puntos",
+    "Zafra-6puntos",
   ];
 
-  let arrayNuevo = [];
+  let resultado = [];
 
   for (const valor of repetidos) {
-    partes = valor.split('-');
+    partes = valor.split("-");
     let ciudad = partes[0];
-    let arrayPuntos = partes[1].split('p');
-    let puntos = arrayPuntos[0];
+    let arrayPuntos = partes[1].split("p");
+    let puntos = Number(arrayPuntos[0]);
+    if (resultado[ciudad] === undefined) {
+      //Comprobamos si la ciudad existe
+      resultado[ciudad] = puntos; // resultado["Zafra"] = 8;  ||Primera vez → lo creamos
+    } else {
+      resultado[ciudad] += puntos; // resultado["Zafra"] += 3   →   11  || Ya existe → sumamos
+    }
   }
+
+  //ahora recorrer el nuevo ARRAYASOCIATIVO llamado  resultado
+  let texto = "";
+  for (const indice in resultado) {
+    texto +=
+      "Las ciudades son: " +
+      indice +
+      " con una puntuacion de: " +
+      resultado[indice] +
+      "\n";
+  }
+  alert(texto);
+  ////////////////////////////////////////////////////////////////////////////////////
+  //HASTA AQUI TENEMOS EL ARRAY POR CIUDAD SIN REPETIR Y LOS PUNTOS SUMADOS///////////
+  ////////////////////////////////////////////////////////////////////////////////////
+
+  //AHORA ORDENAMOS POR PUNTOS
+  let arrayOrdenable = [];
+
+  for (var ciudad in resultado) {
+    arrayOrdenable.push([ciudad, resultado[ciudad]]);
+  }
+
+  arrayOrdenable.sort(function (a, b) {
+    //ORDENAR POR PUNTOS
+    if (a[1] < b[1]) return 1; // Si a tiene menos puntos, va después
+    if (a[1] > b[1]) return -1; // Si a tiene más puntos, va antes
+    return 0; // Igual → no cambia
+  });
+
+  let texto2 = "Ahora ordendas por puntos:\n";
+  for (const indice in arrayOrdenable) {
+    texto2 += arrayOrdenable[indice] + "\n";
+  }
+  alert(texto2);
+}
+
+/*
+Ejercicio 7. Nos han encargado que realicemos un codificador/decodificador de
+mensajes sencillo para poder transmitir los mensajes de la empresa de forma segura.
+Para ello, nos dan un array donde cada letra tiene una posición en el vector fija, de
+forma que, por ejemplo, si nos dan el número 5 codificado, se descodifica buscando en
+la posición 5 del array, y esa será la letra descodificada. Si por ejemplo tenemos el
+array:
+Si son dicen que codifiquemos la palabra “CASA”, ésta debe codificarse como 4-2-6-2.
+Como puede verse, los dígitos van separados por un guión. Ojo, los dígitos del array
+son siempre en mayúsculas.
+7.1. Crear un botón en el .html llamado “Codificar” que llame a la función de codificar
+y ésta sea la que pida al usuario: ¿Qué mensaje quieres codificar?. La función recoge
+los caracteres, los codifica y muestra la decodificación en una ventana emergente.
+El mensaje debe mostrase como se indica, por ejemplo 4-2-6-2, sin ningún guión de
+más al final. Si un carácter no se encuentra en el vector, avisar al usuario que “El
+carácter X no se puede codificar” y finalice el programa sin codificar el mensaje.
+7.2. Crear un botón en el .html llamado “Descodificar” que llame a la función
+descodificar, que pedirá al usuario: ¿Qué mensaje quieres descodificar?. Se indica el
+mensaje en el mismo formato descodificado: 4-62-6-2. Si el carácter no
+se puede descodificar, que muestre al usuario el mensaje “El carácter X no se puede
+descodificar” y finalice el programa sin descodificar el mensaje.
+7.3. Mostrar en el .html una tabla donde se van rellenando las filas con el mensaje
+codificado/descodificado, el resultado de codificar/descodificar y la fecha cuando se
+realizó la codificación/decodificación. Por ejemplo:
+La fecha está formateada como dia / mes / año # hora : minutos : segundos. Hay que
+tener en cuenta que la hora, minuto y segundo siempre deben tener 2 dígitos, por
+ejemplo, la 1 y cinco de la madrugada con 3 segundos se muestra como: 01:05:03.
+Código dado:
+let vectorCodificacion = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+"Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " "]
+let cadenaCodificaciones =
+"<table><tr><th>Mensaje</th><th>Codificacion/Decodificación</th><th>Fecha</th><
+/tr>";
+*/
+
+function codificar() {
+  let vectorCodificacion = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "Ñ",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    " ",
+  ];
+
+  let usuario = prompt("Que mensaje quieres codificar");
+  let caracteres = usuario.split("");
+
+
+  let claves = []; // aquí vamos guardando los índices
+
+  for (let indice in caracteres) {
+    //DEVUELVE LOS INDICES
+    claves.push(indice); // añadimos cada clave al array
+  }
+  // Ahora claves contiene: ["0", "1", "2"]
+
+  let arrayFinal=[]
+
+  for (const indice in vectorCodificacion) {
+    if (claves==indice) {
+      arrayFinal.push(vectorCodificacion[indice]);
+      
+    }
+  }
+
+  
+  alert(arrayFinal.join("-"));
+
 }
