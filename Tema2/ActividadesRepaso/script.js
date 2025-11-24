@@ -141,7 +141,9 @@ function dado() {
     let dado2 = Math.floor(Math.random() * 6) + 1;
     let resultado = dado1 + dado2;
     arrayResultado.push(resultado);
-    arrayApariciones[resultado]++; // contamos la suma
+    arrayApariciones[resultado]++; // de aqui sacamos el porcentaje que va a aparecer cada suma, por ejemplo
+    //arrayApariciones[7] = arrayApariciones[7] + 1  si vuelve a salir el 7 le vuelve a sumar 1 mas
+    //al final va contando cuantas veces sale cada resultado
   }
 
   // Mostramos el porcentaje de cada suma
@@ -206,7 +208,7 @@ function preguntaSimple() {
     let arrayCompleto = []; //aqui creo un array vacio que es donde voy a meter cuando lo vaya guardando abajo, al recorrerlo y usar el push
 
     for (let indice in enunciados) {
-      //aqui recorremos y vamos guardando los indices en el array arrayCompleto
+      //aqui recorremos y vamos guardando los valores en un indice
       arrayCompleto.push([
         enunciados[indice],
         respuestas[indice],
@@ -217,8 +219,8 @@ function preguntaSimple() {
 
     // Generamos 5 índices aleatorios únicos
     while (preguntaFinal.size < 5) {
-      let randomIndex = Math.floor(Math.random() * arrayCompleto.length);
-      preguntaFinal.add(randomIndex);
+      let preguntaRandom = Math.floor(Math.random() * arrayCompleto.length);
+      preguntaFinal.add(preguntaRandom);
     }
     for (const valor of preguntaFinal) {
       //aqui recorremos para que nos salga imprimido el array completo

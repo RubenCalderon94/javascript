@@ -4,23 +4,23 @@ Dentro cada una de las celdas deberá escribirse un número consecutivo en orden
 descendente. Si, por ejemplo, la tabla es de 7×5 los números irán del 35 al 1.
 */
 function ejercicio1() {
-  let fila = parseInt(prompt("Introduce número de filas"));
-  let columnas = parseInt(prompt("Introduce número de columnas"));
+  let fila = parseInt(prompt('Introduce número de filas'));
+  let columnas = parseInt(prompt('Introduce número de columnas'));
   let numRellenar = fila * columnas;
 
   let rdo = "<table border='1'>"; // borde para que se vea
 
   for (let i = 0; i < fila; i++) {
-    rdo = rdo + "<tr>";
+    rdo = rdo + '<tr>';
     for (let j = 0; j < columnas; j++) {
-      rdo += "<td>" + numRellenar + "</td>";
+      rdo += '<td>' + numRellenar + '</td>';
       numRellenar--; // decrementamos el número
     }
-    rdo = rdo + "</tr>";
+    rdo = rdo + '</tr>';
   }
 
-  rdo += "</table>";
-  document.getElementById("tabla").innerHTML = rdo;
+  rdo += '</table>';
+  document.getElementById('tabla').innerHTML = rdo;
 }
 
 /*
@@ -36,9 +36,9 @@ function sacarAleatorio() {
   let numeroAleatorioEntre1y10 = Math.floor(Math.random() * 10) + 1; // un número entre 1 y 10
 
   if (numeroAleatorioEntre1y10 === 5) {
-    alert("El nuemero aleatorio es 5: " + numeroAleatorioEntre1y10);
+    alert('El nuemero aleatorio es 5: ' + numeroAleatorioEntre1y10);
   } else {
-    alert("El numero aleatorio no es el 5: " + numeroAleatorioEntre1y10);
+    alert('El numero aleatorio no es el 5: ' + numeroAleatorioEntre1y10);
   }
 }
 
@@ -48,13 +48,13 @@ los 3 primeros y el resto que los rellene con asteriscos.
 */
 
 function digitosOcultos() {
-  let nombreUsuario = prompt("Introduce tu nombre");
+  let nombreUsuario = prompt('Introduce tu nombre');
 
   let inicioNombre = nombreUsuario.slice(0, 3); //con slice la palabra introducida obtiene esas posiciones
 
   let cantidadAsteriscos = nombreUsuario.length - 3;
 
-  let asteriscos = "*".repeat(cantidadAsteriscos);
+  let asteriscos = '*'.repeat(cantidadAsteriscos);
 
   let total = inicioNombre + asteriscos;
 
@@ -70,10 +70,10 @@ será las veces que ha aparecido, por ejemplo: Parrafo:1, Parrafo:2...
  */
 
 function numerosDiv() {
-  let divs = parseInt(prompt("Introduce numeros de divs"));
-  let parrafos = parseInt(prompt("Introduce numeros de parrafos"));
+  let divs = parseInt(prompt('Introduce numeros de divs'));
+  let parrafos = parseInt(prompt('Introduce numeros de parrafos'));
 
-  let rdo = ""; //cramos la variable vacia, luego la vamos a utilizar
+  let rdo = ''; //cramos la variable vacia, luego la vamos a utilizar
 
   for (let i = 1; i <= divs; i++) {
     //recorremos el numero de divs que el usuario introduce
@@ -81,13 +81,13 @@ function numerosDiv() {
     for (let j = 1; j <= parrafos; j++) {
       // recorremos el numero de parrafos
 
-      rdo += "<p> Parrafo:" + j + "</p>"; ////cada vuelta le vamos sumando 1 mas
+      rdo += '<p> Parrafo:' + j + '</p>'; ////cada vuelta le vamos sumando 1 mas
     }
 
-    rdo += "</div>"; //cerramos el bucle y la variable rdo
+    rdo += '</div>'; //cerramos el bucle y la variable rdo
   }
 
-  document.getElementById("divs").innerHTML = rdo;
+  document.getElementById('divs').innerHTML = rdo;
   //esto es para meter dentro de div
 }
 
@@ -105,33 +105,33 @@ premiado….
 
 function insertaNum() {
   let arrayComprobar = new Array(
-    "12345",
-    "00124",
-    "04586",
-    "98472",
-    "71920",
-    "54102",
-    "00013",
-    "29863",
-    "10978",
-    "47101"
+    '12345',
+    '00124',
+    '04586',
+    '98472',
+    '71920',
+    '54102',
+    '00013',
+    '29863',
+    '10978',
+    '47101'
   );
 
-  let usuario = prompt("Inserta tu numero:");
+  let usuario = prompt('Inserta tu numero:');
 
-  let usuarioPadstar = usuario.padStart(5, "0");
+  let usuarioPadstar = usuario.padStart(5, '0');
 
-  let rdo = "";
+  let rdo = '';
 
   for (const valor of arrayComprobar) {
     if (valor == usuarioPadstar) {
-      rdo = "El numero ha sido premiado";
+      rdo = 'El numero ha sido premiado';
       break; // ← IMPORTANTE NECESITA EL BREAK SI NO DA ERROR,
     } else {
-      rdo = "El numero no ha sido premiado";
+      rdo = 'El numero no ha sido premiado';
     }
   }
-  document.getElementById("numeros").innerHTML = rdo;
+  document.getElementById('numeros').innerHTML = rdo;
   //esto es para meter dentro de div
 }
 
@@ -156,43 +156,30 @@ Array de puntos:
 
 function contarPuntos() {
   let repetidos = [
-    "Zafra-8puntos",
-    "Mérida-23puntos",
-    "Badajoz-4puntos",
-    "Zafra-3puntos",
-    "Almendralejo-12puntos",
-    "Mérida-4puntos",
-    "Badajoz-15puntos",
-    "Zafra-2puntos",
-    "Mérida-7puntos",
-    "Zafra-11puntos",
-    "Almendralejo-31puntos",
-    "Aceuchal-3puntos",
-    "Almendralejo-7puntos",
-    "La Parra-17puntos",
-    "Aceuchal-15puntos",
-    "Zafra-6puntos",
+    'Zafra-8puntos',
+    'Mérida-23puntos',
+    'Badajoz-4puntos',
+    'Zafra-3puntos',
+    'Almendralejo-12puntos',
+    'Mérida-4puntos',
+    'Badajoz-15puntos',
+    'Zafra-2puntos',
+    'Mérida-7puntos',
+    'Zafra-11puntos',
+    'Almendralejo-31puntos',
+    'Aceuchal-3puntos',
+    'Almendralejo-7puntos',
+    'La Parra-17puntos',
+    'Aceuchal-15puntos',
+    'Zafra-6puntos',
   ];
 
-  let arrayNuevo=[];
+  let arrayNuevo = [];
 
   for (const valor of repetidos) {
-    partes=valor.split("-");
+    partes = valor.split('-');
     let ciudad = partes[0];
-    let arrayPuntos = partes[1].split("p");
-    let puntos = arrayPuntos[0]
-
-  };
-
-
-
-
-
-
-  
-  
-
-
-
-
+    let arrayPuntos = partes[1].split('p');
+    let puntos = arrayPuntos[0];
+  }
 }
