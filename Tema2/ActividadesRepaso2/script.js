@@ -180,7 +180,7 @@ function contarPuntos() {
     partes = valor.split("-");
     let ciudad = partes[0];
     let arrayPuntos = partes[1].split("p");
-    let puntos = Number(arrayPuntos[0]);
+    let puntos = Number(arrayPuntos[0]); //pasa de string el numero a entero
     if (resultado[ciudad] === undefined) {
       //Comprobamos si la ciudad existe
       resultado[ciudad] = puntos; // resultado["Zafra"] = 8;  ||Primera vez → lo creamos
@@ -261,6 +261,7 @@ let cadenaCodificaciones =
 */
 
 function codificar() {
+  //prettier-ignore
   let vectorCodificacion = [
     "A",
     "B",
@@ -295,25 +296,74 @@ function codificar() {
   let usuario = prompt("Que mensaje quieres codificar");
   let caracteres = usuario.split("");
 
+  let indiceCodificar = []; // aquí vamos guardando los índices
 
-  let claves = []; // aquí vamos guardando los índices
-
-  for (let indice in caracteres) {
-    //DEVUELVE LOS INDICES
-    claves.push(indice); // añadimos cada clave al array
-  }
-  // Ahora claves contiene: ["0", "1", "2"]
-
-  let arrayFinal=[]
-
-  for (const indice in vectorCodificacion) {
-    if (claves==indice) {
-      arrayFinal.push(vectorCodificacion[indice]);
-      
+  for (let i = 0; i < caracteres.length; i++) {
+    //recorremos el array que hemos creado de caracteres
+    let letra = caracteres[i].toUpperCase(); //recorre cada caracter y lo pasamos a mayúscula
+    let indice = vectorCodificacion.indexOf(letra); // buscamos posición
+    if (indice === -1) {
+      // letra no encontrada
+      alert("El carácter " + letra + " no se puede codificar");
+      return; // termina la función
     }
+    indiceCodificar.push(indice); // +1 si quieres que empiece desde 1
   }
 
-  
-  alert(arrayFinal.join("-"));
-
+  // for (const valor of indiceCodificar) {
+  let parcheadoGuion = indiceCodificar.join("-");
+  alert(parcheadoGuion);
+  // }
 }
+
+function descodificar() {
+  let vectorCodificacion = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "Ñ",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+    " ",
+  ];
+
+  let usuario = prompt(
+    "Que mensaje quieres descodificar, mismo formato 4-62-6-2"
+  );
+
+  let arrayADecodificar = usuario.split("-");
+  for (const valor of arrayADecodificar) {
+    alert(vectorCodificacion[valor]);
+  }
+  
+}
+
+let cadenaCodificaciones =
+"<table><tr><th>Mensaje</th><th>Codificacion/Decodificación</th><th>Fecha</th></tr>";
+
+/*function tabla() {
+
+  cadenaCodificaciones+= 
+  
+}*/
