@@ -1,0 +1,79 @@
+#contenedor {
+    width: 100%;
+    height: 100vh;
+    background-color: lightblue;
+    position: relative;
+}
+#jugadores {
+    position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    width: 100%;
+}
+#jugadores div {
+    display: inline-block;
+    background-color: lightgray;
+    font-size: 80pt;
+    line-height: 300px;
+   
+}
+#jugador1 {
+    margin-right: 70px;
+}
+
+#jugador1, #jugador2 {
+    width: 300px;
+    height: 300px;
+    left: 20%;
+}
+
+button {
+    padding: 10px 25px;
+    font-weight: bold;
+    font-size: 18pt;
+    border-radius: 10px;
+}
+
+#botones {
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    text-align: center;
+}
+#btn1 {
+    margin-right: 40px;
+}
+
+#contenedorHistorial, #titulos {
+    width: 100%;
+    background-color: lightsalmon;
+    text-align: center;
+}
+
+#titulos div {
+    vertical-align: top;
+}
+
+#contenedorHistorial div {
+    margin-right: 100px;
+    display: inline-block;    
+}
+#titulos span{
+    text-align: center;
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+#historialJ1, #historialJ2 {
+    margin: 0 auto;
+    width: 100%;
+    display: inline-block;
+    font-size: 30pt;    
+}
+#estadisticas {
+   text-align: center;
+   background-color: antiquewhite;
+   padding: 10px 0;
+}
