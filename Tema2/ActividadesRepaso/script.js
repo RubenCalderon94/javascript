@@ -112,8 +112,10 @@ por mayúsculas, sólo por minúsculas o por una mezcla de ambas.*/
 function cadenaTexto() {
   let frase = prompt('Introduce una frase');
   if (frase === frase.toUpperCase()) {
+    //comparamos y vemos si son todas MATYUSCULAS
     alert('La frase está formada sólo por MAYÚSCULAS.');
   } else if (frase === frase.toLowerCase()) {
+    //comparamos y vemos si son todas minusculas
     alert('La frase está formada sólo por minúsculas.');
   } else {
     alert('La frase tiene MAYÚSCULAS y minúsculas mezcladas.');

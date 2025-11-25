@@ -11,12 +11,12 @@ function ejercicio1() {
   let rdo = "<table border='1'>"; // borde para que se vea
 
   for (let i = 0; i < fila; i++) {
-    rdo = rdo + '<tr>';
+    rdo = rdo + '<tr>'; //aqui abrimos el tr donde comienza la linea
     for (let j = 0; j < columnas; j++) {
       rdo += '<td>' + numRellenar + '</td>';
       numRellenar--; // decrementamos el número
     }
-    rdo = rdo + '</tr>';
+    rdo = rdo + '</tr>'; //cerramos tr donde va acabando cada linea
   }
 
   rdo += '</table>';
@@ -60,6 +60,26 @@ function digitosOcultos() {
 
   alert(total);
 }
+
+/*OTRA FORMAAAAAAAAAAAAAAA COON SPLIIIIIIIIIIITT
+function digitosOcultosSplit() {
+  let nombreUsuario = prompt('Introduce tu nombre');
+
+  let caracteres = nombreUsuario.split(""); // ["J", "u", "a", "n", "o"]
+
+  // Guardamos los 3 primeros
+  let inicio = caracteres.slice(0, 3); // ["J", "u", "a"]
+
+  // Creamos los asteriscos
+  let cantidadAsteriscos = caracteres.length - 3;
+  let asteriscos = Array(cantidadAsteriscos).fill("*"); // ["*", "*"]
+
+  // Juntamos todo
+  let total = inicio.concat(asteriscos).join(""); // "Jua**"
+
+  alert(total);
+}
+*/
 
 /*
 Ejercicio 4. Crear un ejercicio que pida el número de divs a mostrar y cuántos párrafos
@@ -174,7 +194,7 @@ function contarPuntos() {
     'Zafra-6puntos',
   ];
 
-  let resultado = [];
+  let resultado = []; //array donde vamoss a guardar ya las ciudades sin repetir y sumando sus puntos
 
   for (const valor of repetidos) {
     partes = valor.split('-');
@@ -212,6 +232,9 @@ function contarPuntos() {
   }
 
   arrayOrdenable.sort(function (a, b) {
+    // ejemplo de lo que puede ser (A) Y (B)
+    // a puede ser por ejemplo ["zafra", 15]
+    // b puede ser por ejemplo ["merida", 22]
     //ORDENAR POR PUNTOS
     if (a[1] < b[1]) return 1; // Si a tiene menos puntos, va después
     if (a[1] > b[1]) return -1; // Si a tiene más puntos, va antes
@@ -219,8 +242,8 @@ function contarPuntos() {
   });
 
   let texto2 = 'Ahora ordendas por puntos:\n';
-  for (const indice in arrayOrdenable) {
-    texto2 += arrayOrdenable[indice] + '\n';
+  for (const valor of arrayOrdenable) {
+    texto2 += valor + '\n'; //en forof en valor se imprime asi
   }
   alert(texto2);
 }
@@ -301,17 +324,18 @@ function codificar() {
   for (let i = 0; i < caracteres.length; i++) {
     //recorremos el array que hemos creado de caracteres
     let letra = caracteres[i].toUpperCase(); //recorre cada caracter y lo pasamos a mayúscula
-    let indice = vectorCodificacion.indexOf(letra); // buscamos posición
+    let indice = vectorCodificacion.indexOf(letra); // buscamos posición Y AQUI ES DONDE ASIGNA CADA POSICION DE CADA LETRA,
+    // DEVOLVIENDO CADA NUMERO
     if (indice === -1) {
       // letra no encontrada
       alert('El carácter ' + letra + ' no se puede codificar');
       return; // termina la función
     }
-    indiceCodificar.push(indice); // +1 si quieres que empiece desde 1
+    indiceCodificar.push(indice); //VAMOS GUARDANDO CADA INDICE QUE ES LA POSICION DE CADA LETRA, QUE ES LO QUE NOS INTERESA
   }
 
   // for (const valor of indiceCodificar) {
-  let parcheadoGuion = indiceCodificar.join('-');
+  let parcheadoGuion = indiceCodificar.join('-'); //AQUI EN CADA POSICION(NUMERO) LO SEPARAMOS CON UN GUION
   alert(parcheadoGuion);
   // }
 }
@@ -352,22 +376,42 @@ function descodificar() {
     'Que mensaje quieres descodificar, mismo formato 4-62-6-2'
   );
 
-  let arrayADecodificar = usuario.split('-');
+  let texto = '';
+  let arrayADecodificar = usuario.split('-'); //aqui estoy separando cada numero por el guion, y despues recorrere el arrayADecodificar
+  //que cada posicion sera el valor del array de letras llamado (vectorCodificacion)
   for (const valor of arrayADecodificar) {
-    alert(vectorCodificacion[valor]);
+    texto += vectorCodificacion[valor];
   }
+  alert(texto);
 }
 
 let cadenaCodificaciones =
   '<table><tr><th>Mensaje</th><th>Codificacion/Decodificación</th><th>Fecha</th></tr>';
 
-/*function tabla() {
+function tabla(mensaje, resultado) {
+  let fecha = new Date(); //creamos el objeto fecha porque vamos a usar fechas
 
-  let fecha = new Date();
+  cadenaCodificaciones +=
+    '<tr><td>' +
+    mensaje +
+    '</td><td>' +
+    resultado +
+    '</td><td>' +
+    fecha.getDate() +
+    '/' +
+    fecha.getMonth() +
+    '/' +
+    fecha.getFullYear() +
+    '#' +
+    fecha.getHours() +
+    ':' +
+    fecha.getMinutes() +
+    ':' +
+    fecha.getSeconds().toString().padStart(2, '0') +
+    '</td></tr>';
 
-  cadenaCodificaciones+= <tr></tr>
-  
-}*/
+  document.getElementById('ejercicio7').innerHTML = cadenaCodificaciones;
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
