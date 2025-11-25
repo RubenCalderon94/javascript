@@ -4,23 +4,23 @@ Dentro cada una de las celdas deberá escribirse un número consecutivo en orden
 descendente. Si, por ejemplo, la tabla es de 7×5 los números irán del 35 al 1.
 */
 function ejercicio1() {
-  let fila = parseInt(prompt("Introduce número de filas"));
-  let columnas = parseInt(prompt("Introduce número de columnas"));
+  let fila = parseInt(prompt('Introduce número de filas'));
+  let columnas = parseInt(prompt('Introduce número de columnas'));
   let numRellenar = fila * columnas;
 
   let rdo = "<table border='1'>"; // borde para que se vea
 
   for (let i = 0; i < fila; i++) {
-    rdo = rdo + "<tr>";
+    rdo = rdo + '<tr>';
     for (let j = 0; j < columnas; j++) {
-      rdo += "<td>" + numRellenar + "</td>";
+      rdo += '<td>' + numRellenar + '</td>';
       numRellenar--; // decrementamos el número
     }
-    rdo = rdo + "</tr>";
+    rdo = rdo + '</tr>';
   }
 
-  rdo += "</table>";
-  document.getElementById("tabla").innerHTML = rdo;
+  rdo += '</table>';
+  document.getElementById('tabla').innerHTML = rdo;
 }
 
 /*
@@ -36,9 +36,9 @@ function sacarAleatorio() {
   let numeroAleatorioEntre1y10 = Math.floor(Math.random() * 10) + 1; // un número entre 1 y 10
 
   if (numeroAleatorioEntre1y10 === 5) {
-    alert("El nuemero aleatorio es 5: " + numeroAleatorioEntre1y10);
+    alert('El nuemero aleatorio es 5: ' + numeroAleatorioEntre1y10);
   } else {
-    alert("El numero aleatorio no es el 5: " + numeroAleatorioEntre1y10);
+    alert('El numero aleatorio no es el 5: ' + numeroAleatorioEntre1y10);
   }
 }
 
@@ -48,13 +48,13 @@ los 3 primeros y el resto que los rellene con asteriscos.
 */
 
 function digitosOcultos() {
-  let nombreUsuario = prompt("Introduce tu nombre");
+  let nombreUsuario = prompt('Introduce tu nombre');
 
   let inicioNombre = nombreUsuario.slice(0, 3); //con slice la palabra introducida obtiene esas posiciones
 
   let cantidadAsteriscos = nombreUsuario.length - 3;
 
-  let asteriscos = "*".repeat(cantidadAsteriscos);
+  let asteriscos = '*'.repeat(cantidadAsteriscos);
 
   let total = inicioNombre + asteriscos;
 
@@ -70,10 +70,10 @@ será las veces que ha aparecido, por ejemplo: Parrafo:1, Parrafo:2...
  */
 
 function numerosDiv() {
-  let divs = parseInt(prompt("Introduce numeros de divs"));
-  let parrafos = parseInt(prompt("Introduce numeros de parrafos"));
+  let divs = parseInt(prompt('Introduce numeros de divs'));
+  let parrafos = parseInt(prompt('Introduce numeros de parrafos'));
 
-  let rdo = ""; //cramos la variable vacia, luego la vamos a utilizar
+  let rdo = ''; //cramos la variable vacia, luego la vamos a utilizar
 
   for (let i = 1; i <= divs; i++) {
     //recorremos el numero de divs que el usuario introduce
@@ -81,13 +81,13 @@ function numerosDiv() {
     for (let j = 1; j <= parrafos; j++) {
       // recorremos el numero de parrafos
 
-      rdo += "<p> Parrafo:" + j + "</p>"; ////cada vuelta le vamos sumando 1 mas
+      rdo += '<p> Parrafo:' + j + '</p>'; ////cada vuelta le vamos sumando 1 mas
     }
 
-    rdo += "</div>"; //cerramos el bucle y la variable rdo
+    rdo += '</div>'; //cerramos el bucle y la variable rdo
   }
 
-  document.getElementById("divs").innerHTML = rdo;
+  document.getElementById('divs').innerHTML = rdo;
   //esto es para meter dentro de div
 }
 
@@ -105,33 +105,33 @@ premiado….
 
 function insertaNum() {
   let arrayComprobar = new Array(
-    "12345",
-    "00124",
-    "04586",
-    "98472",
-    "71920",
-    "54102",
-    "00013",
-    "29863",
-    "10978",
-    "47101"
+    '12345',
+    '00124',
+    '04586',
+    '98472',
+    '71920',
+    '54102',
+    '00013',
+    '29863',
+    '10978',
+    '47101'
   );
 
-  let usuario = prompt("Inserta tu numero:");
+  let usuario = prompt('Inserta tu numero:');
 
-  let usuarioPadstar = usuario.padStart(5, "0");
+  let usuarioPadstar = usuario.padStart(5, '0');
 
-  let rdo = "";
+  let rdo = '';
 
   for (const valor of arrayComprobar) {
     if (valor == usuarioPadstar) {
-      rdo = "El numero ha sido premiado";
+      rdo = 'El numero ha sido premiado';
       break; // ← IMPORTANTE NECESITA EL BREAK SI NO DA ERROR,
     } else {
-      rdo = "El numero no ha sido premiado";
+      rdo = 'El numero no ha sido premiado';
     }
   }
-  document.getElementById("numeros").innerHTML = rdo;
+  document.getElementById('numeros').innerHTML = rdo;
   //esto es para meter dentro de div
 }
 
@@ -156,30 +156,30 @@ Array de puntos:
 
 function contarPuntos() {
   let repetidos = [
-    "Zafra-8puntos",
-    "Mérida-23puntos",
-    "Badajoz-4puntos",
-    "Zafra-3puntos",
-    "Almendralejo-12puntos",
-    "Mérida-4puntos",
-    "Badajoz-15puntos",
-    "Zafra-2puntos",
-    "Mérida-7puntos",
-    "Zafra-11puntos",
-    "Almendralejo-31puntos",
-    "Aceuchal-3puntos",
-    "Almendralejo-7puntos",
-    "La Parra-17puntos",
-    "Aceuchal-15puntos",
-    "Zafra-6puntos",
+    'Zafra-8puntos',
+    'Mérida-23puntos',
+    'Badajoz-4puntos',
+    'Zafra-3puntos',
+    'Almendralejo-12puntos',
+    'Mérida-4puntos',
+    'Badajoz-15puntos',
+    'Zafra-2puntos',
+    'Mérida-7puntos',
+    'Zafra-11puntos',
+    'Almendralejo-31puntos',
+    'Aceuchal-3puntos',
+    'Almendralejo-7puntos',
+    'La Parra-17puntos',
+    'Aceuchal-15puntos',
+    'Zafra-6puntos',
   ];
 
   let resultado = [];
 
   for (const valor of repetidos) {
-    partes = valor.split("-");
+    partes = valor.split('-');
     let ciudad = partes[0];
-    let arrayPuntos = partes[1].split("p");
+    let arrayPuntos = partes[1].split('p');
     let puntos = Number(arrayPuntos[0]); //pasa de string el numero a entero
     if (resultado[ciudad] === undefined) {
       //Comprobamos si la ciudad existe
@@ -190,14 +190,14 @@ function contarPuntos() {
   }
 
   //ahora recorrer el nuevo ARRAYASOCIATIVO llamado  resultado
-  let texto = "";
+  let texto = '';
   for (const indice in resultado) {
     texto +=
-      "Las ciudades son: " +
+      'Las ciudades son: ' +
       indice +
-      " con una puntuacion de: " +
+      ' con una puntuacion de: ' +
       resultado[indice] +
-      "\n";
+      '\n';
   }
   alert(texto);
   ////////////////////////////////////////////////////////////////////////////////////
@@ -218,9 +218,9 @@ function contarPuntos() {
     return 0; // Igual → no cambia
   });
 
-  let texto2 = "Ahora ordendas por puntos:\n";
+  let texto2 = 'Ahora ordendas por puntos:\n';
   for (const indice in arrayOrdenable) {
-    texto2 += arrayOrdenable[indice] + "\n";
+    texto2 += arrayOrdenable[indice] + '\n';
   }
   alert(texto2);
 }
@@ -293,8 +293,8 @@ function codificar() {
     " ",
   ];
 
-  let usuario = prompt("Que mensaje quieres codificar");
-  let caracteres = usuario.split("");
+  let usuario = prompt('Que mensaje quieres codificar');
+  let caracteres = usuario.split('');
 
   let indiceCodificar = []; // aquí vamos guardando los índices
 
@@ -304,66 +304,177 @@ function codificar() {
     let indice = vectorCodificacion.indexOf(letra); // buscamos posición
     if (indice === -1) {
       // letra no encontrada
-      alert("El carácter " + letra + " no se puede codificar");
+      alert('El carácter ' + letra + ' no se puede codificar');
       return; // termina la función
     }
     indiceCodificar.push(indice); // +1 si quieres que empiece desde 1
   }
 
   // for (const valor of indiceCodificar) {
-  let parcheadoGuion = indiceCodificar.join("-");
+  let parcheadoGuion = indiceCodificar.join('-');
   alert(parcheadoGuion);
   // }
 }
 
 function descodificar() {
   let vectorCodificacion = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "Ñ",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-    " ",
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'Ñ',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+    ' ',
   ];
 
   let usuario = prompt(
-    "Que mensaje quieres descodificar, mismo formato 4-62-6-2"
+    'Que mensaje quieres descodificar, mismo formato 4-62-6-2'
   );
 
-  let arrayADecodificar = usuario.split("-");
+  let arrayADecodificar = usuario.split('-');
   for (const valor of arrayADecodificar) {
     alert(vectorCodificacion[valor]);
   }
-  
 }
 
 let cadenaCodificaciones =
-"<table><tr><th>Mensaje</th><th>Codificacion/Decodificación</th><th>Fecha</th></tr>";
+  '<table><tr><th>Mensaje</th><th>Codificacion/Decodificación</th><th>Fecha</th></tr>';
 
 /*function tabla() {
 
-  cadenaCodificaciones+= 
+  let fecha = new Date();
+
+  cadenaCodificaciones+= <tr></tr>
   
 }*/
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*Ejercicio 1 
+Nos piden hacer una función llamada “comprobarIgualdad” que reciba como primer 
+parámetro una cadena correctamente escrita y en el segundo parámetro una cadena 
+con algún carácter erróneo. 
+Debemos llamar a dicha función y si la cadena está correcta mostrar “La cadena está 
+correcta”, en caso contrario mostrar “Hay problemas con la cadena: En un lu#c#ar…”, 
+debe mostrar entre # el carácter incorrecto, en este ejemplo el carácter incorrecto es 
+la “c”. */
+
+function comprobarIgualdad(cadena1, cadena2) {
+  let rdo = '';
+  let resultado = '';
+
+  if (cadena1 == cadena2) {
+    rdo = 'Cadenas iguales';
+  } else {
+    for (let i = 0; i < cadena1.length; i++) {
+      if (cadena1[i] !== cadena2[i]) {
+        resultado +=
+          'Diferencias en posicion: ' +
+          i +
+          '<br>' +
+          ' Cadena 1 tiene: ' +
+          cadena1[i] +
+          '<br>' +
+          ' Cadena 2 tiene: ' +
+          cadena2[i] +
+          '<br>'; // salto de línea para separar diferencias
+      }
+    }
+    rdo = 'Las cadenas no coinciden: <br> ' + resultado;
+  }
+  document.getElementById('prueba').innerHTML = rdo;
+}
+
+function pedirCadenas() {
+  let cadena1 = prompt('Escribe una frase');
+  let cadena2 = prompt('Escribe la misma frase pero cambia algun caracter');
+
+  return [cadena1, cadena2]; //hay que retornarlo asi porque si no, no deja retornar dos valores, entonces crea un array
+}
+
+function ejercicioUno() {
+  let probar = pedirCadenas();
+  comprobarIgualdad(probar[0], probar[1]); //como al final se crea un array para usarlo debe de ir asi
+}
+
+/*Ejercicio 2
+Nos dan un array de fechas, cuyo día, mes y año están separados por guiones. Nos 
+piden que hagamos una función llamada "demora” que tenga como parámetros un 
+objeto fecha (inicializado con el día, mes y año del array) y el número días de la 
+demora. 
+Si al sumarle los días de la demora se pasa a otro mes devolverá false, en caso 
+contrario true. 
+Al pulsar el botón “Ejercicio 2” recorrerá todas las fechas y llamará a la función 
+“demora” con, por ejemplo”, 10 días de demora y mostrará en un alert las fechas que 
+se pueden demorar y las que NO se pueden demorar (en 1 solo alert). */
+
+function demora(fecha, diasDemora) {
+  // Creamos un objeto Date con la fecha
+  let fechaJS = new Date(fecha.anio, fecha.mes - 1, fecha.dia); //aqui estamos creando un objeto ya fecha, donde esos parametros
+  //van a ser los del array de abajo partes, por seprarlo con el split (-)
+
+  // Sumamos los días de la demora
+  fechaJS.setDate(fechaJS.getDate() + diasDemora);
+
+  // Comprobamos si se pasó de mes
+  if (fechaJS.getMonth() + 1 !== fecha.mes) {
+    return false; // se pasó de mes
+  } else {
+    return true; // sigue en el mismo mes
+  }
+}
+
+function ejercicioDos() {
+  let arrayFechas = [
+    '03-02-2023',
+    '24-04-2023',
+    '05-06-2023',
+    '16-05-2023',
+    '03-01-2024',
+    '14-02-2024',
+    '26-04-2024',
+  ];
+  let resultado = ''; // donde guardamos todo para el alert
+  let diasDemora = 10;
+
+  for (let i = 0; i < arrayFechas.length; i++) {
+    //recorre el array
+    let partes = arrayFechas[i].split('-'); //partimos por el guion
+    let fechaObj = {
+      dia: parseInt(partes[0]),
+      mes: parseInt(partes[1]),
+      anio: parseInt(partes[2]),
+    };
+    //llamamos aqui porque queremos mostrar todo con un aleeert
+    if (demora(fechaObj, diasDemora)) {
+      resultado += `${arrayFechas[i]} → se puede demorar\n`;
+    } else {
+      resultado += `${arrayFechas[i]} → NO se puede demorar\n`;
+    }
+  }
+
+  alert(resultado);
+}
