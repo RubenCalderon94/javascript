@@ -413,8 +413,6 @@ function tabla(mensaje, resultado) {
   document.getElementById('ejercicio7').innerHTML = cadenaCodificaciones;
 }
 
-
-
 /* Ejercicio 8. Nos piden hacer el juego de Piedra, Papel, Tijera, Lagarto, Spock, para ello,
 nos dan un html y un css con todo lo necesario, lo único que tendremos que
 implementar será la pulsación de los botones “Jugar” e “Historial”.
@@ -430,34 +428,66 @@ las tiradas.
 8.3. Realizar las estadísticas del juego. Se mostrará en el div “estadísticas” el número
 de veces que ha salido un símbolo en particular. Lo puedes integrar en el ejercicio o
 hacer uno aparte, si no has acabado el Ejercicio 3, para esto último, te doy un array de
-tiradas en el fichero codigoNecesario.txt*/ 
+tiradas en el fichero codigoNecesario.txt*/
 
-
-let vectorCodificacion = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", " "]
-let simbolosJuego = ["✂️", "🖖", "🧻", "🦎", "🪨"]
-let historialTiradas = ["✂️", "🧻", "🦎", "🪨", "🪨", "✂️", "🖖", "🖖", "🦎", "🪨",  "🦎" ,"✂️", "🧻", "🖖", "🖖", "✂️", "✂️", "✂️", "🖖", "🦎", "🪨", "✂️", "🖖", "🧻", "🪨"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let vectorCodificacion = [
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'Ñ',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'X',
+  'Y',
+  'Z',
+  ' ',
+];
+let simbolosJuego = ['✂️', '🖖', '🧻', '🦎', '🪨'];
+let historialTiradas = [
+  '✂️',
+  '🧻',
+  '🦎',
+  '🪨',
+  '🪨',
+  '✂️',
+  '🖖',
+  '🖖',
+  '🦎',
+  '🪨',
+  '🦎',
+  '✂️',
+  '🧻',
+  '🖖',
+  '🖖',
+  '✂️',
+  '✂️',
+  '✂️',
+  '🖖',
+  '🦎',
+  '🪨',
+  '✂️',
+  '🖖',
+  '🧻',
+  '🪨',
+];
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -506,6 +536,7 @@ function pedirCadenas() {
 }
 
 function ejercicioUno() {
+  //ejecutar
   let probar = pedirCadenas();
   comprobarIgualdad(probar[0], probar[1]); //como al final se crea un array para usarlo debe de ir asi
 }
@@ -567,4 +598,192 @@ function ejercicioDos() {
   }
 
   alert(resultado);
+}
+
+/*Ejercicio 4
+Utilizando el array de productos del ejercicio 5, crea un botón “cargarAsociativo” que 
+cargue en un array asociativo el nombre del producto y su precio, cuando acabe 
+mostrar “Asociativo cargado”. 
+Luego, al pulsar el botón Ejercicio 5 mostrará (Ojo! que tienen números delante): 
+Listado productos: 
+1.agua: 100 
+2.cocacola: 150 
+… 
+Pide al usuario “Introduce el producto a eliminar”, si no se encuentra el producto 
+mostrar “Producto no encontrado”, si lo encuentra, borrar del array asociativo y 
+mostrar “Producto eliminado” */
+
+let productosAsociativos = {}; // lo hacemos global para poder usarlo desde ambas funciones
+
+function cargarAsociativo() {
+  const productos = [
+    'Agua-100',
+    'CocaCola-150',
+    'Snickers-200',
+    'Patatas-125',
+    'Chicles-50',
+    'Zumo-130',
+    'Sandwich-250',
+    'Café-110',
+    'Té-65',
+    'Galletas-135',
+  ];
+
+  // llenamos el array asociativo
+  for (const valor of productos) {
+    let partes = valor.split('-');
+    let nombre = partes[0];
+    let precio = Number(partes[1]);
+    productosAsociativos[nombre] = precio; //aqui estamos añadiendo al array (let productosAsociativos = {}; )  indice con el producto(nombre)
+    //y el valor el precio
+  }
+
+  document.getElementById('cargar').innerHTML = 'Asociativo cargado';
+  mostrarListado();
+}
+
+function mostrarListado() {
+  let texto = 'Listado de productos: <br/>';
+  let numeroProducto = 1;
+
+  for (const indice in productosAsociativos) {
+    texto +=
+      numeroProducto +
+      '. ' +
+      indice +
+      ': ' +
+      productosAsociativos[indice] +
+      '<br/>';
+    numeroProducto++;
+  }
+
+  document.getElementById('listadoProductos').innerHTML = texto;
+}
+
+function eliminarProducto() {
+  let producto = prompt('Introduce el producto a eliminar');
+
+  if (productosAsociativos[producto] !== undefined) {
+    //productosAsociativos[producto] esto lo que hace es si del arrayAsociativo con el producto
+    //que introduce el usuario coincide lo borra. Con esto no es necesario recorrer de nuevo ese array
+    delete productosAsociativos[producto];
+    alert('Producto eliminado');
+  } else {
+    alert('Producto no encontrado');
+  }
+
+  mostrarListado(); // mostramos el listado actualizado
+}
+
+/*
+Ejercicio 5
+Vamos a simular una máquina expendedora, los productos de dicha máquina nos lo 
+dan en un array de cadenas, donde está el nombre del producto, un guión y luego su 
+precio: “Agua-100”. También nos dan un array de monedas posibles (no puedo insertar 
+una moneda de 35 céntimos, por ejemplo), todas las monedas están en céntimos para 
+facilitar la tarea. 
+4.1 Crear una función llamada “cargarArrayProductos” que cree un array de objetos 
+con los productos de la máquina usando un objeto literal, así tenemos, por ejemplo, 
+que en el índice 0 del array estará el objeto con el nombre y el precio del array. 
+4.2 Crear una función llamada “sacarProducto” que recibirá como parámetro el 
+nombre del producto a sacar de la máquina y un array de monedas insertadas. 
+Si no existe el producto (independientemente de mayúsculas y minúsculas) mostrará 
+“Producto no encontrado”. 
+Si alguna moneda no es correcta mostrará “Moneda X no válida”. 
+Comprobar si hay suficiente dinero para comprar el producto. 
+Si se introduce el importe exacto, mostrar “Producto comprado. No hay cambio” 
+Si se necesita cambio, generar el cambio con el menor número de monedas posibles y 
+mostrar “Producto comprado. Este es su cambio: 50 10 5”, por ejemplo. 
+4.3 Al pulsar el botón ejercicio 5 se llamará a “cargarArrayProductos” y luego 
+sacaremos los productos que deseemos llamando a sacarProducto, por ejemplo: 
+sacarProducto("galletas", [200,50,10]). 
+*/
+
+// Array de productos original
+const productos = [
+  'Agua-100',
+  'CocaCola-150',
+  'Snickers-200',
+  'Patatas-125',
+  'Chicles-50',
+  'Zumo-130',
+  'Sandwich-250',
+  'Café-110',
+  'Té-65',
+  'Galletas-135',
+];
+
+// Monedas válidas en céntimos
+const monedasValidas = [5, 10, 20, 50, 100, 200];
+
+// Array donde guardaremos los productos como objetos
+let arrayProductos = [];
+
+// 4.1 Cargar los productos como objetos
+function cargarArrayProductos() {
+  //AQUI ES ARRAY NORMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL
+  arrayProductos = []; // limpiar si ya había algo
+  for (const valor of productos) {
+    let partes = valor.split('-');
+    let producto = {
+      nombre: partes[0].toLowerCase(), // guardamos en minúsculas
+      precio: Number(partes[1]),
+    };
+    arrayProductos.push(producto); //AÑADIMOS AL ARRAY NUEVO YA SEPARADO
+  }
+  document.getElementById('maquina').innerHTML = 'Productos cargados.';
+}
+
+// 4.2 Función para sacar un producto
+function sacarProducto(nombreProducto, monedasInsertadas) {
+  nombreProducto = nombreProducto.toLowerCase();
+
+  // Buscar el producto
+  let producto = arrayProductos.find((p) => p.nombre === nombreProducto);
+  if (!producto) {
+    alert('Producto no encontrado');
+    return;
+  }
+
+  // Comprobar monedas
+  for (const valor of monedasInsertadas) {
+    if (!monedasValidas.includes(valor)) {
+      alert('Moneda ' + valor + ' no válida');
+      return;
+    }
+  }
+
+  // Calcular total insertado
+  let total = monedasInsertadas.reduce((a, b) => a + b, 0);
+
+  if (total < producto.precio) {
+    alert('Dinero insuficiente');
+    return;
+  } else if (total === producto.precio) {
+    alert('Producto comprado. No hay cambio');
+  } else {
+    let cambio = total - producto.precio;
+    let cambioMonedas = generarCambio(cambio);
+    alert('Producto comprado. Este es su cambio: ' + cambioMonedas.join(' '));
+  }
+}
+
+// Función para generar cambio con el menor número de monedas posibles
+function generarCambio(cantidad) {
+  let cambio = [];
+  let monedas = [...monedasValidas].sort((a, b) => b - a); // ordenar de mayor a menor
+  for (const moneda of monedas) {
+    while (cantidad >= moneda) {
+      cambio.push(moneda);
+      cantidad -= moneda;
+    }
+  }
+  return cambio;
+}
+
+// 4.3 Función que llama a todo al pulsar el botón
+function ejercicio5() {
+  cargarArrayProductos();
+  // ejemplo de compra
+  sacarProducto('galletas', [200, 50, 10]); // puedes cambiar el producto y monedas
 }

@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Piedra, Papel, Tijera, Lagarto o Spock</title>
-    <link rel="stylesheet" href="estilo.css">
-</head>
+    <link rel="stylesheet" href="estilo.css" />
+    <script src="script.js"></script>
+  </head>
 
-<body>
+  <body>
     <div id="estadisticas">0 tiradas</div>
     <div id="contenedor">
-        <div id="jugadores">
-            <div id="jugador1">X</div>
-            <div id="jugador2">X</div>
-        </div>
-        <div id="botones">
-            <button id="btn1" onclick="jugar()">Jugar</button>
-            <button id="btn2" onclick="historial()">Historial</button>
-        </div>
+      <div id="jugadores">
+        <div id="jugador1">X</div>
+        <div id="jugador2">X</div>
+      </div>
+      <div id="botones">
+        <button id="btn1" onclick="jugar()">Jugar</button>
+        <button id="btn2" onclick="historial()">Historial</button>
+      </div>
     </div>
     <div id="contenedorHistorial">
-        <div id="titulos">
-            <div id="titulo1"><span>Jugador 1</span>
-                <br>
-                <div id="historialJ1"></div>
-            </div>
-            <div id="titulo2"><span>Jugador 2</span>
-                <br>
-                <div id="historialJ2"></div>
-            </div>
+      <div id="titulos">
+        <div id="titulo1">
+          <span>Jugador 1</span>
+          <br />
+          <div id="historialJ1"></div>
         </div>
-
-
+        <div id="titulo2">
+          <span>Jugador 2</span>
+          <br />
+          <div id="historialJ2"></div>
+        </div>
+      </div>
     </div>
-
-</body>
-
+  </body>
 </html>
