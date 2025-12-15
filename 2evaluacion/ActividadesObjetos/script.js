@@ -57,8 +57,8 @@ class Persona {
 
 function ejercicio1() {
   // Función que ejecuta el ejemplo
-  let persona1 = new Persona('Ruben'); // Crea un objeto persona1 con nombre "Ruben"
-  let persona2 = new Persona('Carlos'); // Crea un objeto persona2 con nombre "Carlos"
+  let persona1 = new Persona("Ruben"); // Crea un objeto persona1 con nombre "Ruben"
+  let persona2 = new Persona("Carlos"); // Crea un objeto persona2 con nombre "Carlos"
   persona1.saludo(); // Llama al método saludo() de persona1
   persona2.saludo(); // Llama al método saludo() de persona2
 }
@@ -107,8 +107,8 @@ class Libros {
 }
 
 function ejercicio2() {
-  let libro1 = new Libros('azul', 'asdasd', 'sdfsdf');
-  let libro2 = new Libros('ul', 'dasd', 'sdfsdf');
+  let libro1 = new Libros("azul", "asdasd", "sdfsdf");
+  let libro2 = new Libros("ul", "dasd", "sdfsdf");
   libro1.mostrar();
   libro2.mostrar();
 }
@@ -183,8 +183,8 @@ Cilindrada: ${this.cilindrada} cc`
 
 // FUNCIÓN PARA PEDIR DATOS AL USUARIO
 function pedirDatos() {
-  let marca = prompt('Escribe la marca del coche');
-  let modelo = prompt('Escribe el modelo del coche');
+  let marca = prompt("Escribe la marca del coche");
+  let modelo = prompt("Escribe el modelo del coche");
 
   // Devolvemos un objeto con los datos
   return { marca, modelo };
@@ -200,4 +200,97 @@ function ejercicio3() {
   // Llamamos a los métodos
   coche1.infoCompleta();
   coche2.infoCompleta();
+}
+
+/*4. Crear una clase Corredor que tenga las propiedades nombre, dirección, teléfono, país y kilómetros,
+donde se almacenará el nombre de un usuario, su dirección, teléfono, país de origen (para saber el
+prefijo a añadir al teléfono +34 en España) y los kilómetros de ejercicio que ha realizado. A la
+hora de mostrar el teléfono, si el país es España le añadirá +34 y si es Portugal añadirá +35 (solo
+tendremos en cuenta estos 2 países). A la hora de mostrar los kilómetros, éstos se almacenarán en
+metros por defecto, por lo que si son menores a 1000 los mostrará en metros mostrando: 750m por
+ejemplo y si son 1500 metros, mostrará: 1,5Km. Tener en cuenta que el país puede tener la
+primera letra en mayúsculas, todo en mayúsculas… y hay que controlarlo a la hora de añadir +34
+o +35 en el teléfono. Se mostrarán los datos en el propio .html, dentro de un div llamado
+resultado.
+Para las pruebas, crear un array con 2 corredores, uno de Portugal y otro de España. Realiza
+pruebas añadiendo otro corredor con el pais España con todo en minúsculas y debe funcionar.*/
+
+class Corredor {
+  #nombre;
+  #direccion;
+  #telefono;
+  #pais;
+  #kilometros;
+
+  constructor(nombre, direccion, telefono, pais, kilometros) {
+    this.#nombre = nombre;
+    this.#direccion = direccion;
+    this.#telefono = telefono;
+    this.#pais = pais;
+    this.#kilometros = kilometros;
+  }
+
+  get nombre() {
+    return this.#nombre;
+  }
+  set nombre(nuevo) {
+    this.#nombre = nuevo;
+  }
+
+  get direccion() {
+    return this.#direccion;
+  }
+  set direccion(nuevo) {
+    this.#direccion = nuevo;
+  }
+
+  get telefono() {
+    return this.#telefono;
+  }
+  set telefono(nuevo) {
+    this.#telefono = nuevo;
+  }
+
+  get pais() {
+    return this.#pais;
+  }
+  set pais(nuevo) {
+    this.#pais = nuevo.toLowerCase();
+  }
+
+  get kilometros() {
+    return this.#kilometros;
+  }
+  set kilometros(nuevo) {
+    this.#kilometros = nuevo;
+  }
+
+  obtenerPais() {
+    if (this.pais == "españa") {
+      return "+34" + this.pais;
+    } else if (this.pais == "portugal") {
+      return "+35" + this.pais;
+    }
+  }
+
+  obtenerKilometros(){
+    if (this.kilometros < 1000) {
+      return this.kilometros +"m";
+    } else if (this.kilometros > 1000) {
+      return this.kilometros + "km"
+    } 
+      
+    }
+  }
+
+ /* mostrarInfo() {
+    alert(
+      `nombre: ${this.nombre} direccion: ${this.direccion} telefono: ${this.telefono} pais:${this.pais} kilometros:${this.kilometros} `
+    );
+  }*/
+
+
+function ejercicio4() {
+  let corredor1 = new Corredor("ruben", "asdasd", "666666666", "España", 123);
+  let corredor2 = new Corredor("carlos", "ghjgj", "987987987", "Portugal", 987);
 }
