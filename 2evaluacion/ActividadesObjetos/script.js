@@ -57,8 +57,8 @@ class Persona {
 
 function ejercicio1() {
   // Función que ejecuta el ejemplo
-  let persona1 = new Persona("Ruben"); // Crea un objeto persona1 con nombre "Ruben"
-  let persona2 = new Persona("Carlos"); // Crea un objeto persona2 con nombre "Carlos"
+  let persona1 = new Persona('Ruben'); // Crea un objeto persona1 con nombre "Ruben"
+  let persona2 = new Persona('Carlos'); // Crea un objeto persona2 con nombre "Carlos"
   persona1.saludo(); // Llama al método saludo() de persona1
   persona2.saludo(); // Llama al método saludo() de persona2
 }
@@ -107,8 +107,8 @@ class Libros {
 }
 
 function ejercicio2() {
-  let libro1 = new Libros("azul", "asdasd", "sdfsdf");
-  let libro2 = new Libros("ul", "dasd", "sdfsdf");
+  let libro1 = new Libros('azul', 'asdasd', 'sdfsdf');
+  let libro2 = new Libros('ul', 'dasd', 'sdfsdf');
   libro1.mostrar();
   libro2.mostrar();
 }
@@ -123,50 +123,81 @@ El constructor de la clase “Coche”, recibirá como parámetros la marca, el 
 Por último, crea un objeto Coche con los parámetros que prefieras y llama a los métodos
 “InfoCilindrada” e “InfoCompleta”.*/
 
+// CLASE PADRE
 class Vehiculo {
-  #cilindrada;
+  #cilindrada; // Propiedad privada (número)
+
   constructor(cilindrada) {
-    this.cilindrada = cilindrada;
+    this.cilindrada = cilindrada; // usamos el setter
   }
 
+  // Getter
   get cilindrada() {
-    return this.#cilindrada + "cc";
+    return this.#cilindrada;
   }
+
+  // Setter
   set cilindrada(nuevo) {
     this.#cilindrada = nuevo;
   }
-
-  infoCilindrada() {
-    return this.cilindrada;
-  }
 }
 
+// CLASE HIJA
 class Coche extends Vehiculo {
-  #marcaModelo = parametros(marca, modelo);
-  constructor(marcaModelo) {
-    this.marcaModelo = marcaModelo;
+  #marca;
+  #modelo;
+
+  constructor(marca, modelo, cilindrada) {
+    super(cilindrada); // Llama al constructor de Vehiculo (OBLIGATORIO)
+    this.marca = marca; // setter
+    this.modelo = modelo; // setter
   }
 
-  mostrarTodo() {
+  // Getter y Setter de marca
+  get marca() {
+    return this.#marca;
+  }
+
+  set marca(nuevo) {
+    this.#marca = nuevo;
+  }
+
+  // Getter y Setter de modelo
+  get modelo() {
+    return this.#modelo;
+  }
+
+  set modelo(nuevo) {
+    this.#modelo = nuevo;
+  }
+
+  // Método que muestra toda la información
+  infoCompleta() {
     alert(
-      `Mostramos Marca y Modelo: ${
-        this.marcaModelo
-      } Cilindrada: ${this.infoCilindrada()}`
+      `Marca: ${this.marca}
+Modelo: ${this.modelo}
+Cilindrada: ${this.cilindrada} cc`
     );
   }
 }
 
-function parametros() {
-  let marca = prompt("Escribe una marca de coche");
-  let modelo = prompt("Ahora el modelo");
+// FUNCIÓN PARA PEDIR DATOS AL USUARIO
+function pedirDatos() {
+  let marca = prompt('Escribe la marca del coche');
+  let modelo = prompt('Escribe el modelo del coche');
 
-  return marca, modelo;
+  // Devolvemos un objeto con los datos
+  return { marca, modelo };
 }
 
+// FUNCIÓN PRINCIPAL DEL EJERCICIO
 function ejercicio3() {
-  let coche1 = new Coche(1500);
-  let coche2 = new Coche(2000);
+  let datos = pedirDatos(); // Guardamos marca y modelo
 
-  coche1.mostrarTodo();
-  coche2.mostrarTodo();
+  let coche1 = new Coche(datos.marca, datos.modelo, 1500);
+  let coche2 = new Coche(datos.marca, datos.modelo, 2000);
+
+  // Llamamos a los métodos
+  coche1.infoCompleta();
+  coche2.infoCompleta();
 }
