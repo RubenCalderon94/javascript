@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 8</title>
+    <script src="ej8.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+      .producto {
+        border: 2px solid #333;
+        padding: 15px;
+        margin: 15px 0;
+      }
+      .oferta {
+        border-color: #4caf50;
+        background-color: #f0f8f0;
+      }
+      .sin-stock {
+        border-color: #f44336;
+        background-color: #fff0f0;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Catálogo de Productos</h1>
+    <div
+      class="producto"
+      data-id="1"
+      data-nombre="Portátil"
+      data-precio="499"
+      data-stock="5"
+    >
+      <h3>Portátil Gaming</h3>
+      <p>Precio: <span class="precio">499</span>€</p>
+      <p>Stock: <span class="stock">5</span> unidades</p>
+      <img src=" https://goo.su/5hIee" alt="Portátil Gaming" width="200" />
+    </div>
+    <div
+      class="producto"
+      data-id="2"
+      data-nombre="Monitor"
+      data-precio="299"
+      data-stock="0"
+    >
+      <h3>Monitor 27"</h3>
+      <p>Precio: <span class="precio">299</span>€</p>
+      <p>Stock: <span class="stock">0</span> unidades</p>
+      <img src=" https://goo.su/9cIRmt" alt="Monitor 27 pulgadas" width="200" />
+    </div>
+    <button onclick="ejecutar()">Ejecutar</button>
+  </body>
+</html>
