@@ -8,5 +8,24 @@ Si el precio es menor a 500 es una oferta, por lo que hay que aÃ±adir la clase â
 atributo esOferta a true.*/
 
 function ejecutar() {
-    
+  //vamos a recorrer cada producto.
+  // 1 Seleccionamos donde esta cada producto.
+
+  const productos = document.querySelectorAll(".producto");
+
+  //ahora recorremos cada producto
+  productos.forEach((producto, index) => {
+    console.log(`Producto ${index + 1}:`);
+    console.log("ID:", producto.dataset.id);
+    console.log("Nombre:", producto.dataset.nombre);
+    console.log("Precio:", producto.dataset.precio);
+    console.log("Stock:", producto.dataset.stock);
+  });
+
+
+  if (producto.dataset.stock == "0") {
+    console.log("Sin stock ")
+  }
+
+
 }
