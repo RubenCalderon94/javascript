@@ -8,24 +8,50 @@ Si el precio es menor a 500 es una oferta, por lo que hay que añadir la clase �
 atributo esOferta a true.*/
 
 function ejecutar() {
-  //vamos a recorrer cada producto.
-  // 1 Seleccionamos donde esta cada producto.
+  //primero seleccionamos todos los productos
+  const productos = document.querySelectorAll('.producto');
 
-  const productos = document.querySelectorAll(".producto");
+  //el nuevo div que hemos creado para imprimir lo que vamos a cambiar
+  const contenedor = document.querySelector('.resultado');
 
-  //ahora recorremos cada producto
-  productos.forEach((producto, index) => {
-    console.log(`Producto ${index + 1}:`);
-    console.log("ID:", producto.dataset.id);
-    console.log("Nombre:", producto.dataset.nombre);
-    console.log("Precio:", producto.dataset.precio);
-    console.log("Stock:", producto.dataset.stock);
-  });
+  let contenido = '<h2>Listado de productos:</h2>';
 
+  //recorremos el nodelist creado con queryselectorall
+  for (const producto of productos) {
+    const id = producto.dataset.id;
+    const nombre = producto.dataset.nombre;
+    const precio = parseFloat(producto.dataset.precio);
+    let stock = parseInt(producto.dataset.stock);
 
-  if (producto.dataset.stock == "0") {
-    console.log("Sin stock ")
+    // Revisamos si está agotado
+    if (stock === 0) {
+      producto.classList.add('sin-stock'); //añadimos nueva clase
+      producto.dataset.disponible = 'false';
+      stock = 'AGOTADO';
+      producto.querySelector('.stock').textContent = stock;
+    } else {
+      producto.dataset.disponible = 'true';
+    }
+
+    // Revisamos si es oferta
+    let esOferta = 'false';
+    if (precio < 500) {
+      producto.classList.add('oferta');
+      esOferta = 'true';
+    }
+    producto.dataset.esOferta = esOferta;
+
+    // Añadimos al contenido para mostrar en pantalla
+    contenido += `
+        <p>ID: ${id}</p>
+        <p>Nombre: ${nombre}</p>
+        <p>Precio: ${precio}€</p>
+        <p>Stock: ${stock}</p>
+        <p>En oferta: ${esOferta}</p>
+      <hr>
+    `;
   }
 
-
+  // Mostramos todo en la página
+  contenedor.innerHTML = contenido;
 }

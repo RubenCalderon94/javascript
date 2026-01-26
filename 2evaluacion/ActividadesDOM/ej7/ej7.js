@@ -19,29 +19,31 @@ Modifica el primer producto y ponle un precio de 69 y añade un nuevo atributo l
 */
 
 function ejecutar() {
-  //primero hay que seleccionar donde estarian los productos. Como hay varios usamos "querySelectorAll"
+  //primero seleccionamos por class los productos y generamos un nodeList
+  let productos = document.querySelectorAll('.producto');
 
-  const productos = document.querySelectorAll(".producto"); // primero seleccionamos donde estarian los productos (hemos seleccionado por class)
+  //aqui modificaremos el producto 1 es la posicion 0 del nodeList
+  nuevoPrecio = productos[0].dataset.precio = '69';
+  enOferta = productos[0].dataset.enOferta = true;
+  //declaramos variable que iremos añadiendo mas contenido despues,
+  // que sera lo que vamos a imprimir
+  let contenido = 'Listado de productos: <br>';
+  let contador = 1;
 
-  //recorremos todos los atributos
-  productos.forEach((producto, index) => {
-    console.log(`Producto ${index + 1}:`);
-    console.log("ID:", producto.dataset.id);
-    console.log("Nombre:", producto.dataset.nombre);
-    console.log("Precio:", producto.dataset.precio);
-    console.log("Stock:", producto.dataset.stock);
-  });
+  for (const producto of productos) {
+    //recorremos el nodeList y ajustamos parametros que vamos a ir imprimiendo
+    contenido += 'Producto ' + contador + ': <br> ';
+    contenido += 'ID: ' + `${producto.dataset.id}` + '<br>';
+    contenido += 'Nombre: ' + `${producto.dataset.nombre}` + '<br>';
+    contenido += 'Precio: ' + `${producto.dataset.precio}` + '<br>';
+    contenido += 'Stock: ' + `${producto.dataset.stock}` + '<br>';
+    contenido += 'En oferta: ' + `${producto.dataset.enOferta}` + '<br><br>';
+    contador++;
+  }
 
-  const primerProducto = document.querySelector(".producto");
+  //creamos un div nuevo y lo seleccionamos, es donde vamos a
+  // imprimir el contenido usando innerHTML
+  let resultado = document.querySelector('.resultado');
 
-  //Como es un solo producto no es necesario recorrer con foreach o lo que sea
-  // Modificar y añadir atributos
-  primerProducto.dataset.precio = "69";
-  primerProducto.dataset.enOferta = "true";
-
-  console.log("=== Primer producto modificado ===");
-  console.log("ID:", primerProducto.dataset.id);
-  console.log("Nombre:", primerProducto.dataset.nombre);
-  console.log("Precio:", primerProducto.dataset.precio);
-  console.log("En oferta:", primerProducto.dataset.enOferta);
+  resultado.innerHTML += contenido;
 }

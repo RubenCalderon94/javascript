@@ -9,22 +9,23 @@ Tareas:
 
 function ejecutar() {
   //1. Añade la clase "destacado" a la caja.
-  //seleccionamos primero el contenedor
-  const destacado = document.querySelector("#caja");
 
-  //una vez lo tenemos, lo modificamos
-  destacado.classList.add("destacado");
+  let aniadeDestacado = document.querySelector('#caja');
 
-  //mostramos ya modificado
-  console.log(caja.className);
+  aniadeDestacado.classList.add('destacado');
 
-  // 2. Verifica si tiene la clase "contenedor" y muestra el resultado en consola.
-  const tiene = destacado.classList.contains("contenedor");
-  alert("Tiene contenedor " + tiene);
+  //mostramos para ver si se ha añadido
+  alert(aniadeDestacado.className);
 
-  // 3. Elimina la clase "contenedor".
-  destacado.classList.remove("contenedor");
+  //2. Verifica si tiene la clase "contenedor" y muestra el resultado en consola.
 
-  //4. Muestra todas las clases finales en consola.
-  console.log(destacado.classList.length);
+  let verifica = aniadeDestacado.classList.contains('.contedor');
+
+  alert(verifica);
+
+  //3. Elimina la clase "contenedor".
+  aniadeDestacado.classList.remove('.contenedor');
+
+  //4. Muestra todas las clases finales en consola.*/
+  console.log(aniadeDestacado.classList.length);
 }
