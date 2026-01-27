@@ -41,67 +41,55 @@ Estilo y elementos HTML:
 <ul id="lista"></ul>
 
 Recorrer el array de tareas iniciales y crea elementos <li> y dentro <span> con el texto de cada tarea, añade un botón eliminar con la clase “btn-eliminar”. Crea una función “crearElementoLista” que tenga como parámetro de entrada un texto y devuelva el <li> a insertar:
-
-// Array de tareas iniciales
-    const tareasIniciales = [
-        "Estudiar JavaScript",
-        "Practicar DOM",
-        "Hacer ejercicios"
-    ];
 */
+// Array de tareas iniciales
+const tareasIniciales = [
+  'Estudiar JavaScript',
+  'Practicar DOM',
+  'Hacer ejercicios',
+];
 
 // ----------------------------
 // Esperamos a que el DOM esté cargado
-// ----------------------------
+// con esta linea evitamos errores al cargar o no antes de ejecutar
 document.addEventListener('DOMContentLoaded', function () {
-  // con esta linea evitamos errores al cargar o no antes de ejecutar
-  // ----------------------------
-  // Seleccionamos el <ul> donde pondremos los <li>
-  // ----------------------------
-  const lista = document.querySelector('#lista');
+  //seleccionamos donde vamos a añadir lo creado
+  let lista = document.querySelector('#lista');
 
-  // ----------------------------
-  // Array con las tareas iniciales
-  // ----------------------------
-  const tareasIniciales = [
-    'Estudiar JavaScript',
-    'Practicar DOM',
-    'Hacer ejercicios',
-  ];
+  //funcion completa para añadir li, span, button y A ESTA FUNCION SE LE
+  //PASA EL TEXTO
 
-  // ----------------------------
-  // Función para crear un <li> con span y botón eliminar
-  // ----------------------------
-  function crearElementoLista(texto) {
-    // Crear el <li>
-    const li = document.createElement('li');
+  function crearElemetosLista(texto) {
+    //creamos el elemento LI
+    let li = document.createElement('li');
+    //creamos el elemento span (que contendra el texto te la tarea)
+    let span = document.createElement('span');
+    span.textContent = texto;
+    //creamos el elemento button, que ponga eliminar y con class "btn-eliminar" para usar css
+    let boton = document.createElement('button');
+    boton.textContent = 'eliminar';
+    boton.classList.add('btn-eliminar');
 
-    // Crear un <span> para contener el texto de la tarea
-    const span = document.createElement('span');
-    span.textContent = texto; // Añadir el texto dentro del span
-
-    // Crear un botón para eliminar la tarea
-    const boton = document.createElement('button');
-    boton.textContent = 'Eliminar'; // Texto del botón
-    boton.classList.add('btn-eliminar'); // Clase para estilo rojo
-
-    // Añadimos evento click al botón para eliminar el <li>
+    //CREAMOS UN EVENTO, que sera al clickcar ese botton
+    // Evento click para eliminar la tarea(QUE BORRARA UN LI,
+    //CADA LI LLEVA UN BOTON)
     boton.addEventListener('click', function () {
-      li.remove(); // Borra este <li> del DOM
+      li.remove(); // Elimina este <li> del DOM
     });
 
-    // Metemos el span y el botón dentro del <li>
+    //ahora para añadir usaremos APPEND
     li.append(span, boton);
 
-    // Devolvemos el <li> ya completo
     return li;
   }
 
-  // ----------------------------
-  // Recorrer el array de tareas iniciales y añadirlas a la lista
-  // ----------------------------
-  for (let tarea of tareasIniciales) {
-    const li = crearElementoLista(tarea); // Creamos el <li>
-    lista.append(li); // Lo añadimos al <ul>
+  //recorremos el array de tareasIniciales
+  for (const tarea of tareasIniciales) {
+    //ahora con la otra funcion creada, solo al recorrer el array
+    //se ira añadiendo y todo se guarda en este li
+    const li = crearElemetosLista(tarea);
+
+    //añadimos a la lista del html
+    lista.append(li);
   }
 });
