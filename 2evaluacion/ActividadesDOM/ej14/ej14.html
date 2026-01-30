@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="ej14.js"></script>
+    <title>Document</title>
+  </head>
+  <style>
+    .producto {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      display: inline-block;
+    }
+    .producto.oculto {
+      display: none;
+    }
+  </style>
+  <body>
+    <h1>Catálogo de Productos</h1>
+    <div id="filtros">
+      <label>Categoría:</label>
+      <select id="categoria">
+        <option value="">Todas</option>
+        <option value="electronica">Electrónica</option>
+        <option value="ropa">Ropa</option>
+        <option value="hogar">Hogar</option>
+        <option value="coches">Coches</option>
+      </select>
+      <input type="checkbox" id="solo-disponibles" />
+      <label for="solo-disponibles">Solo disponibles</label>
+      <button id="aplicar-filtros">Aplicar Filtros</button>
+    </div>
+    <div id="productos">
+      <div class="producto" data-categoria="electronica" data-stock="5">
+        <h3>Portátil</h3>
+        <p>Precio: 999€</p>
+        <p>Stock: 5</p>
+      </div>
+      <div class="producto" data-categoria="ropa" data-stock="0">
+        <h3>Camiseta</h3>
+        <p>Precio: 19€</p>
+        <p>Stock: 0</p>
+      </div>
+      <div class="producto" data-categoria="electronica" data-stock="10">
+        <h3>Ratón</h3>
+        <p>Precio: 29€</p>
+        <p>Stock: 10</p>
+      </div>
+      <div class="producto" data-categoria="hogar" data-stock="3">
+        <h3>Lámpara</h3>
+        <p>Precio: 45€</p>
+        <p>Stock: 3</p>
+      </div>
+    </div>
+  </body>
+</html>
