@@ -11,20 +11,22 @@ const arrayProductos = [
   "696;Webcam 4K;75.25;Resolución Ultra HD para tus reuniones de equipo.;https://resource.logitech.com/w_80,h_50,c_limit,q_auto,f_auto,dpr_2.0/d_transparent.gif/content/dam/logitech/en/products/webcams/brio/gallery/brio-gallery-2.png?v=1",
 ];
 
-window.addEventListener("DOMContentLoaded", () => {
 
-  //selecionamos el template
-  const template = document.querySelector("#plantillaTarjeta");
+//selecionamos el template
+const template = document.querySelector("#plantillaTarjeta");
 
-  //seleccionamos donde insertaremos los productos DINAMICAMENTE
-  const insertar = document.querySelector("#productGrid");
+//seleccionamos donde insertaremos los productos DINAMICAMENTE
+const insertar = document.querySelector("#productGrid");
 
-  //-Convierte el array de strings en un array de objetos con las propiedades: id (entero),
-  //nombre, precio (decimal), descripcion, imagen.
+//llamamos a la funcion de parchearArray para ejecutarla
+parchearArray(arrayProductos);
 
-  let array = [];
+//-Convierte el array de strings en un array de objetos con las propiedades: id (entero),
+//nombre, precio (decimal), descripcion, imagen.
+
+function parchearArray(arrayProductos) {
   const productosFormateados = arrayProductos.map((item) => {
-    const [id, nombre, precio, descripcion, imagen] = item.split(",");
+    const [id, nombre, precio, descripcion, imagen] = item.split(";");
     return {
       id: parseInt(id),
       nombre: nombre,
@@ -34,36 +36,39 @@ window.addEventListener("DOMContentLoaded", () => {
     };
   });
 
+  //AQUI DIBUJAMOS CADA PRODUCTO
   for (const producto of productosFormateados) {
     //recorremos el array ya parcheado
     dibujarProducto(producto);
   }
+}
 
-  //- U%liza el <template> con id “plan%llaTarjeta” para dibujar cada producto en el grid
-  //(productGrid). Asigna el id del producto al atributo data-id del botón "Añadir".
-  function dibujarProducto(producto) {
-    //clonamos la tarjeta 
-    const clon = template.content.cloneNode(true);
-    const tarjeta = clon.querySelector('.product-card');
+//- U%liza el <template> con id “plan%llaTarjeta” para dibujar cada producto en el grid
+//(productGrid). Asigna el id del producto al atributo data-id del botón "Añadir".
+function dibujarProducto(producto) {
+  //clonamos la tarjeta
+  const clon = template.content.cloneNode(true);
 
-    const img = tarjeta.querySelector('.product-image');
-    const titulo = tarjeta.querySelector('.product-title');
-    const descripcion = tarjeta.querySelector('.product-desc');
-    const boton = tarjeta.querySelector('#btn-aniadir');
+  const tarjeta = clon.querySelector(".product-card");
+  const img = tarjeta.querySelector(".product-image");
+  const titulo = tarjeta.querySelector(".product-title");
+  const descripcion = tarjeta.querySelector(".product-desc");
+  const precio = tarjeta.querySelector(".product-price");
 
-    img.src=producto.imagen;
-    titulo.textContent = producto.nombre;
-    descripcion.textContent = producto.descripcion;
-    
-    template.appendChild(img);
-    template.appendChild(titulo);
-    template.appendChild(descripcion);
+  const boton = tarjeta.querySelector(".add-btn");
 
-    
-    insertar.appendChild(template);
+  img.src = producto.imagen;
+  titulo.textContent = producto.nombre;
+  descripcion.textContent = producto.descripcion;
+  precio.textContent = producto.precio + " €";
+  boton.dataset.id = producto.id;
+
+  insertar.appendChild(clon);
+
+}
 
 
-    return insertar;
 
-  }
-});
+
+
+
