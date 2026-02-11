@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap");
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.ejercicio {
+    flex: 0 0 auto;
+    width: 150px;
+}
+.bordeColor {
+    background-color: blue;
+}
+.imgEjercicios{
+    width: 40px;
+    height: 40px;
+}
