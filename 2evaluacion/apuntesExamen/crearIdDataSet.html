@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo DOM con y sin template</title>
+    <style>
+      .producto {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 200px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Productos (Sin Template)</h2>
+    <ul id="listaProductos"></ul>
+
+    <h2>Productos (Con Template)</h2>
+    <ul id="listaProductosTemplate"></ul>
+
+    <!-- Template -->
+    <template id="templateProducto">
+      <li class="producto">
+        <strong class="nombre"></strong><br />
+        Precio: <span class="precio"></span>€
+      </li>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>

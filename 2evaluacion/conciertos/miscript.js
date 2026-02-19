@@ -186,17 +186,27 @@ function dibujarReservaFinal(arrayReservarFinal) {
     // Botón modificar
     const btnModificar = clon.querySelector('.modificarNombre');
     btnModificar.addEventListener('click', () => {
+      // Abrimos un prompt para que el usuario escriba un nuevo nombre
+      // El segundo parámetro muestra el nombre actual como valor inicial
       const nuevoNombre = prompt('Introduce nuevo nombre', reserva.nombre);
+      // Abrimos un prompt para que el usuario escriba un nuevo nombre
+      // El segundo parámetro muestra el nombre actual como valor inicial
       const nuevoApellido = prompt(
         'Introduce nuevo apellido',
         reserva.apellidos,
       );
 
+      // Si el usuario escribió algo para el nombre (no dejó vacío ni canceló)
       if (nuevoNombre) reserva.nombre = nuevoNombre;
+      // Si el usuario escribió algo para el apellido
       if (nuevoApellido) reserva.apellidos = nuevoApellido;
 
+      // Buscamos la fila de la reserva correspondiente en el DOM
+      // closest() busca el elemento padre más cercano con la clase '.butacasReservadas'
       const fila = btnModificar.closest('.butacasReservadas');
+      // Seleccionamos el span que muestra el nombre y actualizamos su contenido
       fila.querySelector('.span-nombre').textContent = reserva.nombre;
+      // Seleccionamos el span que muestra el apellido y actualizamos su contenido
       fila.querySelector('.span-apellidos').textContent = reserva.apellidos;
     });
 
