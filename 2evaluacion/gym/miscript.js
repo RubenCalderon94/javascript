@@ -32,11 +32,11 @@ arrayDatos.forEach((ejercicio) => {
   img.addEventListener('click', () => {
     // quitamos borde de la anterior
     if (imagenSeleccionada) {
-      imagenSeleccionada.classList.remove('bordeColor');
+      imagenSeleccionada.classList.remove('.bordeColor');
     }
 
     // ponemos borde azul a la imagen clicada
-    img.classList.add('bordeColor');
+    img.classList.add('.bordeColor');
 
     // guardamos la imagen seleccionada
     imagenSeleccionada = img;
