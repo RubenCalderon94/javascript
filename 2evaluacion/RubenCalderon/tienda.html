@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tienda de Ropa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="miestilo.css" />
+    <script defer src="miscript.js"></script>
+  </head>
+
+  <body>
+    <!-- CABECERA -->
+    <header>
+      <h1>Tienda de Ropa</h1>
+      <div style="display: flex; gap: 16px; align-items: center">
+        <button id="btn-nueva-prenda">+ Nueva prenda</button>
+        <span id="carrito-info"
+          >Carrito: <span id="numArticulos">0</span> artículos</span
+        >
+        <button id="btn-comprar">Comprar</button>
+      </div>
+    </header>
+
+    <!-- FORMULARIO NUEVA PRENDA (oculto por defecto) -->
+    <section id="formulario-nueva" class="oculto">
+      <h2>Nueva prenda</h2>
+      <form id="form-prenda">
+        <label
+          >Nombre <input type="text" id="inputNombre" name="nombre" required
+        /></label>
+        <label
+          >Tipo <input type="text" id="inputTipo" name="tipo" required
+        /></label>
+        <label
+          >Color <input type="text" id="inputColor" name="color" required
+        /></label>
+        <label
+          >Tallas <small>(separadas por coma)</small>
+          <input
+            type="text"
+            id="inputTallas"
+            name="tallas"
+            placeholder="XS,S,M,L,XL"
+            required
+        /></label>
+        <label
+          >Precio (€)
+          <input
+            type="number"
+            id="inputPrecio"
+            name="precio"
+            min="0"
+            step="0.01"
+            required
+        /></label>
+        <div class="form-botones">
+          <button type="button" id="btn-anadir-prenda">Añadir prenda</button>
+          <button type="button" id="btn-cancelar">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ZONA DE FILTROS (se rellena con JS) -->
+    <nav id="filtros"></nav>
+
+    <!-- CATÁLOGO (se rellena con JS) -->
+    <main id="catalogo"></main>
+
+    <template id="template-tarjeta">
+      <article class="tarjeta">
+        <div class="tarjeta-imagen-wrapper">
+          <img class="tarjeta-imagen" src="" alt="" />
+          <span class="tarjeta-badge"></span>
+        </div>
+        <div class="tarjeta-body">
+          <p class="tarjeta-nombre"></p>
+          <div class="tarjeta-tags">
+            <span class="tag-color"></span>
+          </div>
+          <!-- Botones de talla (se generan por JS) -->
+          <div class="tallas-selector"></div>
+          <p class="talla-aviso">Selecciona una talla</p>
+          <p class="tarjeta-precio"></p>
+        </div>
+        <button class="btn-anadir">+ Añadir al carrito</button>
+      </article>
+    </template>
+
+    <!-- ══════════════════════════════════════════
+       TEMPLATE: botón de filtro
+  ══════════════════════════════════════════ -->
+    <template id="template-filtro">
+      <button class="btn-filtro"></button>
+    </template>
+  </body>
+</html>

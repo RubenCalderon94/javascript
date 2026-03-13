@@ -1,0 +1,403 @@
+/* ════════════════════════════════════════════
+   RESET & BASE
+════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #f0f0f0;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+/* ════════════════════════════════════════════
+   CABECERA
+════════════════════════════════════════════ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #111;
+  padding: 0 32px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+header h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+#carrito-info {
+  font-size: 0.85rem;
+  color: #aaa;
+  font-weight: 500;
+}
+
+#btn-comprar {
+  background: #fff;
+  color: #111;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Inter', Arial, sans-serif;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+#btn-comprar:hover {
+  background: #ddd;
+}
+
+#btn-comprar:active {
+  transform: scale(0.97);
+}
+
+/* ════════════════════════════════════════════
+   FILTROS
+════════════════════════════════════════════ */
+#filtros {
+  position: sticky;
+  top: 64px;
+  z-index: 90;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px 32px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.btn-filtro {
+  padding: 8px 20px;
+  border: 2px solid #ccc;
+  background: transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #555;
+  font-family: 'Inter', Arial, sans-serif;
+  transition: all 0.2s ease;
+}
+
+.btn-filtro:hover {
+  border-color: #111;
+  color: #111;
+}
+
+.btn-filtro.activo {
+  background: #111;
+  border-color: #111;
+  color: #fff;
+}
+
+/* ════════════════════════════════════════════
+   CATÁLOGO
+════════════════════════════════════════════ */
+#catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 32px;
+}
+
+/* ════════════════════════════════════════════
+   TARJETA
+════════════════════════════════════════════ */
+.tarjeta {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.13);
+}
+
+/* — Imagen — */
+.tarjeta-imagen-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 260px;
+  background: #e8e8e8;
+}
+
+.tarjeta-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.tarjeta:hover .tarjeta-imagen {
+  transform: scale(1.08);
+}
+
+/* — Badge de tipo — */
+.tarjeta-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #111;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* — Cuerpo — */
+.tarjeta-body {
+  padding: 16px 18px 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tarjeta-nombre {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.3;
+}
+
+/* — Tags (talla, color, material) — */
+.tarjeta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: #f0f0f0;
+  color: #555;
+}
+
+/* — Precio — */
+.tarjeta-precio {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #111;
+  margin-top: auto;
+  padding-bottom: 4px;
+}
+
+/* — Selector de tallas — */
+.tallas-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.btn-talla {
+  padding: 5px 12px;
+  border: 1.5px solid #ccc;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #555;
+  transition: all 0.15s ease;
+}
+
+.btn-talla:hover {
+  border-color: #111;
+  color: #111;
+}
+
+.btn-talla.activa {
+  background: #111;
+  border-color: #111;
+  color: #fff;
+}
+
+.talla-aviso {
+  font-size: 0.78rem;
+  color: #e63946;
+  font-weight: 600;
+  display: none;
+}
+
+.talla-aviso.visible {
+  display: block;
+}
+
+/* — Botón añadir — */
+.btn-anadir {
+  margin: 0 18px 18px;
+  padding: 12px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-anadir:hover {
+  background: #333;
+}
+
+.btn-anadir:active {
+  transform: scale(0.97);
+}
+
+/* ════════════════════════════════════════════
+   BOTÓN NUEVA PRENDA (cabecera)
+════════════════════════════════════════════ */
+#btn-nueva-prenda {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: 'Inter', Arial, sans-serif;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+#btn-nueva-prenda:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* ════════════════════════════════════════════
+   FORMULARIO NUEVA PRENDA
+════════════════════════════════════════════ */
+#formulario-nueva {
+  max-width: 480px;
+  margin: 48px auto;
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+}
+
+#formulario-nueva h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #111;
+}
+
+#form-prenda {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#form-prenda label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+}
+
+#form-prenda label small {
+  font-weight: 400;
+  color: #999;
+}
+
+#form-prenda input {
+  padding: 10px 14px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #111;
+  transition: border-color 0.2s;
+}
+
+#form-prenda input:focus {
+  outline: none;
+  border-color: #111;
+}
+
+.form-botones {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.form-botones button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Inter', Arial, sans-serif;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.form-botones button[type="submit"] {
+  background: #111;
+  color: #fff;
+}
+
+.form-botones button[type="submit"]:hover {
+  background: #333;
+}
+
+.form-botones button[type="submit"]:active {
+  transform: scale(0.97);
+}
+
+.form-botones button[type="button"] {
+  background: #f0f0f0;
+  color: #444;
+}
+
+.form-botones button[type="button"]:hover {
+  background: #e0e0e0;
+}
+
+.form-botones button[type="button"]:active {
+  transform: scale(0.97);
+}
+
+.oculto {
+  display: none;
+}
