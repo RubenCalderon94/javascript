@@ -1,138 +1,136 @@
 const propiedades = [
   {
-    nombre: "Villa Mediterránea",
+    nombre: 'Villa Mediterránea',
     descripcion:
-      "Espectacular villa con vistas al mar, 4 habitaciones, piscina privada y jardín.",
+      'Espectacular villa con vistas al mar, 4 habitaciones, piscina privada y jardín.',
     precio: 350000,
-    ciudad: "Málaga",
+    ciudad: 'Málaga',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=400&fit=crop',
   },
   {
-    nombre: "Piso Centro Histórico",
+    nombre: 'Piso Centro Histórico',
     descripcion:
-      "Amplio piso reformado en pleno centro, 3 habitaciones y terraza con vistas.",
+      'Amplio piso reformado en pleno centro, 3 habitaciones y terraza con vistas.',
     precio: 220000,
-    ciudad: "Sevilla",
+    ciudad: 'Sevilla',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop',
   },
   {
-    nombre: "Chalet Sierra Norte",
+    nombre: 'Chalet Sierra Norte',
     descripcion:
-      "Chalet independiente en la sierra, 5 habitaciones, chimenea y garaje doble.",
+      'Chalet independiente en la sierra, 5 habitaciones, chimenea y garaje doble.',
     precio: 410000,
-    ciudad: "Madrid",
+    ciudad: 'Madrid',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=400&fit=crop',
   },
   {
-    nombre: "Apartamento Playa",
+    nombre: 'Apartamento Playa',
     descripcion:
-      "Apartamento a 100 metros de la playa, 2 habitaciones, recién reformado.",
+      'Apartamento a 100 metros de la playa, 2 habitaciones, recién reformado.',
     precio: 185000,
-    ciudad: "Valencia",
+    ciudad: 'Valencia',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400&h=400&fit=crop',
   },
   {
-    nombre: "Ático Luminoso",
+    nombre: 'Ático Luminoso',
     descripcion:
-      "Ático dúplex con terraza panorámica de 50m², 3 habitaciones y solarium.",
+      'Ático dúplex con terraza panorámica de 50m², 3 habitaciones y solarium.',
     precio: 295000,
-    ciudad: "Barcelona",
+    ciudad: 'Barcelona',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop',
   },
   {
-    nombre: "Casa Rural Encanto",
+    nombre: 'Casa Rural Encanto',
     descripcion:
-      "Casa rural restaurada con encanto, 4 habitaciones, huerto y bodega.",
+      'Casa rural restaurada con encanto, 4 habitaciones, huerto y bodega.',
     precio: 175000,
-    ciudad: "Asturias",
+    ciudad: 'Asturias',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=400&h=400&fit=crop',
   },
   {
-    nombre: "Loft Industrial",
+    nombre: 'Loft Industrial',
     descripcion:
-      "Loft de diseño en antigua fábrica, espacios abiertos, techos altos de 5 metros.",
+      'Loft de diseño en antigua fábrica, espacios abiertos, techos altos de 5 metros.',
     precio: 260000,
-    ciudad: "Bilbao",
+    ciudad: 'Bilbao',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=400&fit=crop',
   },
   {
-    nombre: "Adosado Familiar",
+    nombre: 'Adosado Familiar',
     descripcion:
-      "Adosado en urbanización con piscina comunitaria, 4 habitaciones y trastero.",
+      'Adosado en urbanización con piscina comunitaria, 4 habitaciones y trastero.',
     precio: 230000,
-    ciudad: "Zaragoza",
+    ciudad: 'Zaragoza',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=400&fit=crop',
   },
   {
-    nombre: "Mansión Colonial",
+    nombre: 'Mansión Colonial',
     descripcion:
-      "Impresionante mansión de estilo colonial, 6 habitaciones, piscina y cancha de tenis.",
+      'Impresionante mansión de estilo colonial, 6 habitaciones, piscina y cancha de tenis.',
     precio: 520000,
-    ciudad: "Marbella",
+    ciudad: 'Marbella',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=400&h=400&fit=crop',
   },
   {
-    nombre: "Estudio Moderno",
+    nombre: 'Estudio Moderno',
     descripcion:
-      "Estudio completamente equipado en zona universitaria, ideal como inversión.",
+      'Estudio completamente equipado en zona universitaria, ideal como inversión.',
     precio: 95000,
-    ciudad: "Granada",
+    ciudad: 'Granada',
     vendida: false,
     imagen:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=400&fit=crop",
+      'https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=400&fit=crop',
   },
 ];
 const nombresMeses = [
-  "enero",
-  "febrero",
-  "marzo",
-  "abril",
-  "mayo",
-  "junio",
-  "julio",
-  "agosto",
-  "septiembre",
-  "octubre",
-  "noviembre",
-  "diciembre",
+  'enero',
+  'febrero',
+  'marzo',
+  'abril',
+  'mayo',
+  'junio',
+  'julio',
+  'agosto',
+  'septiembre',
+  'octubre',
+  'noviembre',
+  'diciembre',
 ];
 
 //VARIABLES GLOBALES
 let arrayFormateado = [];
 let arrayDetalles = [];
 let contadorId = 1;
-let imagenSeleccionada = "";
+let imagenSeleccionada = '';
 
 //SELECCIONAMOS DOM
-const galeria = document.querySelector("#galeria");
-const template = document.querySelector("#template-casa");
-const divImagenes = document.querySelector(".galeria");
-const hipoteca = document.querySelector("#hipoteca");
-const inputPrecio=document.querySelector("#hipoteca-precio");
-const select=document.querySelector("#hipoteca-porcentaje");
-const entrada = document.querySelector("hipoteca-entrada");
-const año = document.querySelector("#hipoteca-anios");
-const botonCalcular = document.querySelector("#btn-calcular");
-
-
+const galeria = document.querySelector('#galeria');
+const template = document.querySelector('#template-casa');
+const divImagenes = document.querySelector('.galeria');
+const hipoteca = document.querySelector('#hipoteca');
+const inputPrecio = document.querySelector('#hipoteca-precio');
+const select = document.querySelector('#hipoteca-porcentaje');
+const entrada = document.querySelector('hipoteca-entrada');
+const año = document.querySelector('#hipoteca-anios');
+const botonCalcular = document.querySelector('#btn-calcular');
 
 //Ejecutamos funciones
 parchearArray(propiedades);
@@ -156,53 +154,51 @@ function parchearArray(array) {
 //FUNCIONES
 function dibujarGaleria(array) {
   //LIMPIAMOS PARA IMPRIMIR
-  galeria.innerHTML = "";
+  galeria.innerHTML = '';
 
   array.forEach((producto) => {
     const clon = template.content.cloneNode(true);
-    clon.querySelector(".casa-ciudad").textContent = producto.ciudad;
-    let casa = clon.querySelector(".casa-img");
+    clon.querySelector('.casa-ciudad').textContent = producto.ciudad;
+    let casa = clon.querySelector('.casa-img');
 
     casa.src = producto.imagen;
-    clon.querySelector(".casa-precio").textContent =
-      producto.precio.toLocaleString("es-ES");
+    clon.querySelector('.casa-precio').textContent =
+      producto.precio.toLocaleString('es-ES');
 
-    casa.addEventListener("click", (e) => {
+    casa.addEventListener('click', (e) => {
+      // Comprobamos si está vendida
+      if (propiedad.vendida) {
+        alert('Esta propiedad ya ha sido vendida');
+        return;
+      }
       //pintarImagen(arrayFormateado);
-      const todas = galeria.querySelectorAll(".casa-img");
+      const todas = galeria.querySelectorAll('.casa-img');
       todas.forEach(
         (
           imagenes, //borra las clases de todas, para no dejar el azul a todas
-        ) => imagenes.classList.remove("seleccionada"),
+        ) => imagenes.classList.remove('seleccionada'),
       );
 
       // Poner borde solo a la seleccionada
-      e.target.classList.add("seleccionada");
+      e.target.classList.add('seleccionada');
 
       imagenSeleccionada = e.target.src;
 
-      const boton=document.querySelector("#btn-calcular-hipoteca");
-      boton.addEventListener("click", (e) => {
-
-      });
-      
+      const boton = document.querySelector('#btn-calcular-hipoteca');
+      boton.addEventListener('click', (e) => {});
     });
 
     galeria.appendChild(clon);
   });
 }
 
-
-
 // 5️⃣5 Añadimos la reserva al array
 function anadir() {
-  const h3= "Simulador de Hipoteca";
+  const h3 = 'Simulador de Hipoteca';
   const precio = inputPrecio.value;
   const porcentaje = select.value;
-  const entrada=entrada.value;
-  const anio=año.value;
-
-  
+  const entrada = entrada.value;
+  const anio = año.value;
 
   const nuevaReserva = {
     precio,
@@ -219,7 +215,4 @@ function anadir() {
   inputButaca.value = '';
   entrada.value = '';
   año.value = '';
-  
-  
-
 }

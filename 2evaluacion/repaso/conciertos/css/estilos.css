@@ -1,0 +1,44 @@
+.basura {
+	background-color: pink;
+}
+#hero {
+    background-image: url('../images/14.jpg');
+    min-height: 30vh;
+    background-position: 20% 30%;
+    background-size: cover;
+}
+.conciertos img{
+    width: 100px;
+}
+.escenario {
+	background-color: #666;
+	color: white;
+	padding: 10px;
+	text-align: center;
+	margin-bottom: 20px;
+	box-shadow: 0 0 8px #828181;
+}
+.asientos {
+	display: flex;
+	justify-content: center;	
+}
+.asiento {
+	margin: 5px;
+	cursor: pointer;
+	background-color: #CCC;
+	width: 30px;
+	height: 30px;
+	margin: 3px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	cursor: pointer;	
+}
+
+.ocupado {
+	background-color: #ff5252; /* Cambia el color al seleccionar */
+}
+
+.asiento:not(.ocupado):hover {
+    cursor:default;
+    transform: scale(1.2);
+}

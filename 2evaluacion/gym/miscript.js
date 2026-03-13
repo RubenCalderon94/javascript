@@ -15,32 +15,48 @@ let arrayDatos = [
   'Hombros pesas rusas;4;12;6;ej14.png',
 ];
 
-const contenedor = document.querySelector('.ejercicios');
-const templateEjercicio = document.querySelector('#templateEjercicio');
+let arrayFormateado = [];
+let imagenSelecionada = '';
 
-let imagenSeleccionada = null;
+//SELECCIONAMOS EL DOM
+const divEjercicios = document.querySelector('.ejercicios');
+const templateImagenes = document.querySelector('#templateEjercicio');
 
-arrayDatos.forEach((ejercicio) => {
-  const partes = ejercicio.split(';');
-  const imagen = partes[4];
+parchearArray(arrayDatos);
+dibujar(arrayFormateado);
 
-  const clon = templateEjercicio.content.cloneNode(true);
-  const img = clon.querySelector('img');
-
-  img.src = `imagenes/${imagen}`;
-
-  img.addEventListener('click', () => {
-    // quitamos borde de la anterior
-    if (imagenSeleccionada) {
-      imagenSeleccionada.classList.remove('.bordeColor');
-    }
-
-    // ponemos borde azul a la imagen clicada
-    img.classList.add('.bordeColor');
-
-    // guardamos la imagen seleccionada
-    imagenSeleccionada = img;
+function parchearArray(array) {
+  // El map ahora sí llena arrayFormateado
+  arrayFormateado = array.map((ejercicio) => {
+    const partes = ejercicio.split(';');
+    // IMPORTANTE: Añade 'imagenes/' antes del nombre del archivo
+    const rutaCompleta = 'imagenes/' + partes[4];
+    return { imagen: rutaCompleta };
   });
+}
 
-  contenedor.appendChild(clon);
-});
+function dibujar(array) {
+  divEjercicios.innerHTML = '';
+
+  array.forEach((imagenes) => {
+    const clon = templateImagenes.content.cloneNode(true);
+    const img = clon.querySelector('img');
+    img.src = imagenes.imagen;
+
+    // Evento click que marca la imagen seleccionada
+    img.addEventListener('click', (e) => {
+      const todas = divEjercicios.querySelectorAll('img');
+      todas.forEach(
+        (
+          imagenes, //borra las clases de todas, para no dejar el azul a todas
+        ) => imagenes.classList.remove('border', 'border-4', 'border-primary'),
+      );
+
+      // Poner borde solo a la seleccionada
+      e.target.classList.add('border', 'border-4', 'border-primary');
+
+      imagenSeleccionada = e.target.src; // Guardar la imagen seleccionada
+    });
+    divEjercicios.appendChild(clon);
+  });
+}
