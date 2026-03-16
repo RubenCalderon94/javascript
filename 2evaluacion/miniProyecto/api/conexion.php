@@ -1,6 +1,6 @@
 <?php
 
-// Función para cargar variables del archivo .env
+//Función para cargar variables del archivo .env
 function cargarEnv($ruta) {
     if (!file_exists($ruta)) {
         http_response_code(500);
@@ -14,23 +14,22 @@ function cargarEnv($ruta) {
     $lineas = file($ruta, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     
     foreach ($lineas as $linea) {
-        // Ignorar comentarios
+       
         if (strpos(trim($linea), '#') === 0) {
             continue;
         }
 
-        // Separar clave=valor
+       
         list($clave, $valor) = explode('=', $linea, 2);
         
-        // Guardar en $_ENV
+       
         $_ENV[trim($clave)] = trim($valor);
     }
 }
 
-// Cargar el archivo .env (un nivel arriba de /api/)
+
 cargarEnv(__DIR__ . '/../.env');
 
-// Usar las variables de entorno
 define('DB_HOST', $_ENV['DB_HOST']);
 define('DB_USER', $_ENV['DB_USER']);
 define('DB_PASS', $_ENV['DB_PASS']);

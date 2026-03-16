@@ -10,7 +10,7 @@ const rutas = {
 // ===== ESTADO GLOBAL =====
 let carrito = [];
 
-// ===== NAVEGACIÓN (SPA) =====
+// ===== NAVEGACIÓN =====
 async function cargarVista(nombre) {
   const contenido = document.querySelector("#contenido-principal");
 
@@ -25,12 +25,10 @@ async function cargarVista(nombre) {
     return;
   }
 
-  // Actualizar clase activa en el menú
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.classList.toggle("activo", link.dataset.vista == nombre);
   });
 
-  // Ejecutar lógica específica de cada sección
   if (nombre == "artistas") initArtistas();
   else if (nombre == "entradas-vendidas") initEntradasVendidas();
   else if (nombre == "administracion") initAdministracion();
@@ -55,13 +53,11 @@ async function initArtistas() {
       clon.querySelector(".tarjeta-precio").textContent =
         `${parseFloat(artista.precio).toFixed(2)}€`;
 
-      // Abrir modal (salvo si pulsa en el botón de cesta)
       clon.querySelector(".tarjeta").addEventListener("click", (e) => {
         if (e.target.classList.contains("btn-cesta")) return;
         abrirModal(artista);
       });
 
-      // Añadir al carrito
       clon.querySelector(".btn-cesta").addEventListener("click", () => {
         agregarAlCarrito(artista);
       });
@@ -93,7 +89,6 @@ function agregarAlCarrito(artista) {
 
   actualizarEstadoCarrito();
 
-  // Si el panel ya está abierto, redibujamos para que se vea el cambio
   if (document.querySelector("#carrito-panel").classList.contains("abierto")) {
     renderizarCarrito();
   }
@@ -192,7 +187,7 @@ async function initEntradasVendidas() {
 // ===== VISTA ADMINISTRACIÓN =====
 function initAdministracion() {
   const inputImg = document.querySelector("#input-imagen");
-  const mensajeDiv = document.querySelector("#form-mensaje"); // 1. Capturamos el contenedor del mensaje
+  const mensajeDiv = document.querySelector("#form-mensaje");
 
   if (inputImg) {
     inputImg.addEventListener("change", (e) => {
@@ -211,7 +206,6 @@ function initAdministracion() {
     btnGuardar.addEventListener("click", async () => {
       const datos = new FormData(formulario);
 
-      // 2. Limpiamos estados previos del mensaje
       mensajeDiv.textContent = "";
       mensajeDiv.className = "";
 
@@ -223,20 +217,16 @@ function initAdministracion() {
         const resultado = await res.json();
 
         if (resultado.success) {
-          // 3. ÉXITO: Mostramos el texto y aplicamos la clase verde de tu CSS
           mensajeDiv.textContent = "¡Artista añadido correctamente!";
           mensajeDiv.classList.add("exito");
 
-          // 4. Opcional: Limpiar formulario tras el éxito
           formulario.reset();
           document.querySelector("#preview-imagen").innerHTML = "";
 
-          // Redirigimos a la galería después de 2 segundos para que se vea el mensaje
           setTimeout(() => {
             cargarVista("artistas");
           }, 2000);
         } else {
-          // 5. ERROR: Mostramos el error con la clase roja de tu CSS
           mensajeDiv.textContent = "Error: " + resultado.error;
           mensajeDiv.classList.add("error");
         }
@@ -251,10 +241,8 @@ function initAdministracion() {
 
 // ===== CONFIGURACIÓN DE EVENTOS INICIALES =====
 document.addEventListener("DOMContentLoaded", () => {
-  // Cargar vista por defecto
   cargarVista("artistas");
 
-  // Navegación del menú
   document.querySelectorAll(".nav-link").forEach((link) => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -262,18 +250,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Cerrar Modal
   document.querySelector("#modal-cerrar").addEventListener("click", () => {
     document.querySelector("#modal").classList.remove("visible");
   });
 
-  // ABRIR/CERRAR PANEL CARRITO (Basado en tu CSS)
   const panel = document.querySelector("#carrito-panel");
   const overlay = document.querySelector("#carrito-overlay");
 
   document.querySelector("#btn-carrito").addEventListener("click", () => {
     panel.classList.add("abierto");
-    overlay.classList.add("activo"); // 'activo' según tu CSS
+    overlay.classList.add("activo");
     renderizarCarrito();
   });
 
@@ -289,7 +275,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // BOTÓN FINALIZAR COMPRA
   document.querySelector("#btn-comprar").addEventListener("click", async () => {
-    // Tarea 2.7: Enviar cada item del carrito a la base de datos
     for (const item of carrito) {
       const fd = new FormData();
       fd.append("id", item.id);

@@ -4,7 +4,7 @@ $conexion = obtenerConexion();
 $metodo = $_SERVER['REQUEST_METHOD'];
 
 if ($metodo == 'GET') {
-    // Tarea 2.8: Consultar artistas y sumar sus entradas vendidas
+
     $sql = "SELECT a.id, a.nombre, a.imagen, 
             COALESCE(SUM(e.cantidad), 0) AS total_entradas 
             FROM artistas a 
@@ -18,7 +18,7 @@ if ($metodo == 'GET') {
     enviarRespuesta($conexion, $datos);
 
 } elseif ($metodo == 'POST') {
-    // Tarea 2.7: Registrar una venta
+    
     $artista_id = $_POST['id'];
     $cantidad = $_POST['cantidad'];
 
