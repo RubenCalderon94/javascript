@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artistas</title>
+    <link rel="stylesheet" href="css/miestilo.css" />
+    <script defer src="js/miscript.js"></script>
+  </head>
+
+  <body>
+    <!-- Barra de navegación -->
+    <header id="navbar">
+      <div id="nav-logo">🎵 Conciertos</div>
+      <nav>
+        <a href="#artistas" class="nav-link" data-vista="artistas">Artistas</a>
+        <a
+          href="#entradas-vendidas"
+          class="nav-link"
+          data-vista="entradas-vendidas"
+          >Entradas vendidas</a
+        >
+        <a href="#administracion" class="nav-link" data-vista="administracion"
+          >Administración</a
+        >
+      </nav>
+      <button id="btn-carrito" title="Ver carrito">
+        <span id="carrito-icono">🛒</span>
+        <span id="carrito-count" class="oculto">0</span>
+      </button>
+    </header>
+
+    <!-- Contenido principal (vistas SPA) -->
+    <main id="contenido-principal"></main>
+
+    <!-- Modal detalle artista -->
+    <div id="modal">
+      <div id="modal-contenido">
+        <button id="modal-cerrar">&times;</button>
+        <img id="modal-img" src="" alt="" />
+        <div id="modal-nombre"></div>
+        <p id="modal-descripcion"></p>
+      </div>
+    </div>
+
+    <!-- Panel carrito lateral -->
+    <aside id="carrito-panel">
+      <div id="carrito-header">
+        <h3>🛒 Tu carrito</h3>
+        <button id="carrito-cerrar">&times;</button>
+      </div>
+      <div id="carrito-items"></div>
+      <div id="carrito-footer">
+        <div id="carrito-total"></div>
+        <button id="btn-comprar" disabled>Comprar ahora</button>
+      </div>
+    </aside>
+    <div id="carrito-overlay"></div>
+
+    <!-- Template item carrito -->
+    <template id="carrito-item-template">
+      <div class="carrito-item">
+        <img src="" alt="" />
+        <div class="carrito-item-info">
+          <span class="carrito-item-nombre"></span>
+          <span class="carrito-item-precio"></span>
+        </div>
+        <div class="carrito-item-cantidad">
+          <button class="btn-cantidad btn-restar">−</button>
+          <span class="carrito-item-cantidad-num"></span>
+          <button class="btn-cantidad btn-sumar">+</button>
+        </div>
+        <span class="carrito-item-subtotal"></span>
+      </div>
+    </template>
+
+    <!-- Template tarjeta artista -->
+    <template id="tarjeta-template">
+      <div class="tarjeta">
+        <img src="" alt="" />
+        <div class="tarjeta-info">
+          <p class="tarjeta-nombre"></p>
+          <div class="tarjeta-footer">
+            <span class="tarjeta-precio"></span>
+            <button class="btn-cesta">+ Cesta</button>
+          </div>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>
